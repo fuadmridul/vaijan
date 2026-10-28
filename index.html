@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAIJAN | ভাইজান — Premium Clothing, Khulna</title>
+<meta name="description" content="VAIJAN — premium clothing brand from Khulna, Bangladesh. Winter Collection: premium 350+ GSM fleece hoodies. Cash on Delivery all over Bangladesh.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141416; --panel2:#1a1a1d; --gold:#c9a86a; --gold2:#e6cd8f;
+    --text:#f4efe6; --muted:#b7b0a0; --line:#2a2a2e; --red:#8e1f2f;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  /* Header */
+  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+  .logo{font-family:'Cinzel',serif;font-size:30px;font-weight:700;letter-spacing:10px;color:var(--gold)}
+  .logo small{display:block;font-family:'Manrope',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);font-weight:600;margin-top:2px}
+  .links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--muted)}
+  .links a:hover{color:var(--gold2)}
+  .btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--gold);transition:.2s}
+  .btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#171204}
+  .btn-gold:hover{filter:brightness(1.08)}
+  .btn-ghost{color:var(--gold2);background:transparent}
+  .btn-ghost:hover{background:rgba(201,168,106,.12)}
+  .btn-wa{background:#1faa55;color:#fff;border-color:#1faa55}
+  .btn-wa:hover{filter:brightness(1.08)}
+  /* Hero */
+  .hero{border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 15% 0%,rgba(201,168,106,.16),transparent 60%),radial-gradient(700px 380px at 90% 20%,rgba(201,168,106,.08),transparent 60%)}
+  .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:52px 0}
+  .kicker{letter-spacing:5px;font-size:12px;color:var(--gold2);font-weight:800;text-transform:uppercase}
+  h1{font-size:52px;line-height:1.05;font-weight:800;margin:14px 0 6px}
+  h1 .gold{color:var(--gold)}
+  .tagline{letter-spacing:4px;color:var(--muted);font-size:13px;font-weight:700;margin-bottom:18px}
+  .hero p.lead{color:var(--muted);max-width:52ch}
+  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  .pill{display:inline-block;background:var(--gold);color:#171204;font-weight:800;border-radius:999px;padding:6px 16px;font-size:14px;margin-top:18px}
+  .hero img{border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  /* Sections */
+  section{padding:56px 0}
+  h2{font-size:30px;font-weight:800;margin-bottom:8px}
+  h2 .gold{color:var(--gold)}
+  .sub{color:var(--muted);margin-bottom:26px}
+  /* Categories */
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+  .chip{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-weight:700;font-size:14px;cursor:pointer}
+  .chip.active{border-color:var(--gold);color:#171204;background:linear-gradient(180deg,var(--gold2),var(--gold))}
+  .chip.soon{opacity:.55;cursor:default}
+  /* Products */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+  .card .ph{background:#fff}
+  .card .ph img{width:100%;height:340px;object-fit:cover;object-position:top}
+  .card .bd{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .badge{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold2);border:1px solid var(--gold);border-radius:999px;padding:4px 10px;text-transform:uppercase}
+  .badge.red{color:#ffb3ba;border-color:var(--red)}
+  .card h3{font-size:20px;font-weight:800}
+  .card p{color:var(--muted);font-size:14px;flex:1}
+  .sizes{font-size:13px;color:var(--muted)}
+  .sizes b{color:var(--text)}
+  .price{display:flex;align-items:baseline;gap:10px}
+  .price .now{font-size:26px;font-weight:800;color:var(--gold2)}
+  .price .was{color:var(--muted);text-decoration:line-through;font-size:16px}
+  .price .save{font-size:12px;font-weight:800;color:#7ee2a0}
+  .card .row{display:flex;gap:10px;flex-wrap:wrap}
+  .card .row .btn{flex:1;text-align:center;padding:11px 8px}
+  /* Info strip */
+  .strip{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:30px;padding-bottom:30px}
+  .feat{text-align:center;padding:8px}
+  .feat .ic{font-size:26px;margin-bottom:8px}
+  .feat b{display:block;font-size:15px}
+  .feat span{color:var(--muted);font-size:13px}
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .step .n{font-family:'Cinzel',serif;font-size:26px;color:var(--gold);font-weight:700}
+  .step b{display:block;margin:8px 0 6px;font-size:16px}
+  .step p{color:var(--muted);font-size:14px}
+  .note{margin-top:22px;border:1px dashed var(--gold);border-radius:14px;padding:16px 18px;color:var(--muted);font-size:14px;background:rgba(201,168,106,.06)}
+  .note b{color:var(--gold2)}
+  /* Footer */
+  footer{border-top:1px solid var(--line);padding:38px 0 30px;color:var(--muted);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer .logo{font-size:24px}
+  footer a{color:var(--gold2)}
+  .copy{margin-top:22px;font-size:12px;color:#77705f}
+  @media (max-width:900px){
+    .hero-in{grid-template-columns:1fr}
+    .grid{grid-template-columns:1fr}
+    .strip .wrap{grid-template-columns:repeat(2,1fr)}
+    .steps{grid-template-columns:1fr}
+    h1{font-size:38px}
+    .links{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">VAIJAN<small>THE NAME • THE LOOK • THE LEGACY</small></a>
+    <nav class="links">
+      <a href="#categories">Categories</a>
+      <a href="#shop">Shop</a>
+      <a href="#order">How to Order</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold" href="https://m.me/vaijan662" target="_blank" rel="noopener">Order Now</a>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <div class="kicker">Winter Collection 2026</div>
+      <h1>Premium <span class="gold">Hoodies</span><br>Built to Stand Out</h1>
+      <div class="tagline">। VAIJAN । ভাইজান । — KHULNA, BANGLADESH</div>
+      <p class="lead">350+ GSM premium fleece, bold front &amp; back prints, and a fit made for Bangladeshi winter. Order today — pay cash when your parcel arrives at your door.</p>
+      <span class="pill">Winter Offer — Hoodies at ৳750 only</span>
+      <div class="hero-cta">
+        <a class="btn btn-gold" href="#shop">Shop the Collection</a>
+        <a class="btn btn-wa" href="https://wa.me/8801569177407" target="_blank" rel="noopener">WhatsApp Order</a>
+      </div>
+    </div>
+    <div>
+      <img src="images/winter-poster.png" alt="Vaijan Winter Collection — Premium Hoodie ৳750">
+    </div>
+  </div>
+</div>
+
+<section id="categories">
+  <div class="wrap">
+    <h2>Product <span class="gold">Categories</span></h2>
+    <p class="sub">Browse by category — new products are added regularly. Follow our Facebook Page so you never miss a drop.</p>
+    <div class="chips">
+      <button class="chip active" data-filter="all">All Products</button>
+      <button class="chip" data-filter="hoodie">Winter Hoodies</button>
+      <button class="chip" data-filter="bundle">Bundle Offer</button>
+      <button class="chip soon" disabled>More Categories — Coming Soon</button>
+    </div>
+
+    <div class="grid" id="shop">
+      <!-- Design A -->
+      <article class="card" data-cat="hoodie">
+        <div class="ph"><img src="images/hoodie-a.jpg" alt="Design A — Kalima Calligraphy Hoodie, front and back view"></div>
+        <div class="bd">
+          <span class="badge">Winter Hoodie</span>
+          <h3>Design A — Kalima Calligraphy Hoodie</h3>
+          <p>Black premium hoodie with white Arabic Kalima calligraphy and sword detail on the front, and a large ornate framed print on the back. 350+ GSM fleece — soft, warm and heavy-duty.</p>
+          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
+          <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
+          <div class="row">
+            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20Design%20A%20-%20Kalima%20Calligraphy%20Hoodie%20(750%2F-).%20Size%3A%20">WhatsApp Order</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Design B -->
+      <article class="card" data-cat="hoodie">
+        <div class="ph"><img src="images/hoodie-b.jpg" alt="Design B — Only Trust Allah Hoodie, front and back view"></div>
+        <div class="bd">
+          <span class="badge red">Winter Hoodie</span>
+          <h3>Design B — Only Trust Allah Hoodie</h3>
+          <p>Black premium hoodie with “ONLY TRUST ALLAH” on the front and a bold red back panel with white Arabic calligraphy. 350+ GSM fleece — the design that turns heads.</p>
+          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
+          <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
+          <div class="row">
+            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20Design%20B%20-%20Only%20Trust%20Allah%20Hoodie%20(750%2F-).%20Size%3A%20">WhatsApp Order</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Bundle -->
+      <article class="card" data-cat="bundle">
+        <div class="ph"><img src="images/winter-poster.png" alt="Vaijan Winter Bundle — Design A + Design B"></div>
+        <div class="bd">
+          <span class="badge">Bundle Offer</span>
+          <h3>Winter Bundle — Design A + Design B</h3>
+          <p>Both signature hoodies together. One for you, one for your vai — or keep both looks in your own rotation. Same premium 350+ GSM fleece, both sizes of your choice.</p>
+          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> (each) &nbsp;•&nbsp; Colour: <b>Black</b></div>
+          <div class="price"><span class="now">৳1,399</span><span class="was">৳1,700</span><span class="save">Save ৳301</span></div>
+          <div class="row">
+            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20the%20Winter%20Bundle%20-%20Design%20A%20%2B%20Design%20B%20(1%2C399%2F-).%20Sizes%3A%20">WhatsApp Order</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="feat"><div class="ic">🧵</div><b>350+ GSM Fleece</b><span>Thick, warm, premium fabric</span></div>
+    <div class="feat"><div class="ic">💵</div><b>Cash on Delivery</b><span>Pay when you receive</span></div>
+    <div class="feat"><div class="ic">🚚</div><b>All Bangladesh Delivery</b><span>SteadFast courier from Khulna</span></div>
+    <div class="feat"><div class="ic">🔍</div><b>Check at Delivery</b><span>Inspect in front of the rider</span></div>
+  </div>
+</div>
+
+<section id="order">
+  <div class="wrap">
+    <h2>How to <span class="gold">Order</span></h2>
+    <p class="sub">Three simple steps — no advance payment needed.</p>
+    <div class="steps">
+      <div class="step"><div class="n">01</div><b>Choose Design &amp; Size</b><p>Pick Design A, Design B or the Bundle — and your size (M | L | XL | XXL). Please check your size carefully before ordering.</p></div>
+      <div class="step"><div class="n">02</div><b>Send Your Details</b><p>Message us on WhatsApp or Page inbox with: design, size, your name, mobile number and full address.</p></div>
+      <div class="step"><div class="n">03</div><b>Pay on Delivery</b><p>We ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single hoodie.</p></div>
+    </div>
+    <div class="note"><b>Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your size carefully before ordering.</div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top">VAIJAN</a>
+        <p style="margin-top:10px">। Vaijan । ভাইজান । — Clothing Brand<br>Khulna, Bangladesh</p>
+      </div>
+      <div>
+        <b style="color:var(--text)">Shop &amp; Social</b>
+        <p style="margin-top:8px"><a href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener">Facebook Page — vaijan662</a><br><a href="https://m.me/vaijan662" target="_blank" rel="noopener">Messenger Inbox</a></p>
+      </div>
+      <div>
+        <b style="color:var(--text)">Order Hotline</b>
+        <p style="margin-top:8px">WhatsApp / Call: <a href="https://wa.me/8801569177407" target="_blank" rel="noopener">+880 1569-177407</a><br>Delivery: SteadFast Courier, all Bangladesh</p>
+      </div>
+    </div>
+    <div class="copy">© 2026 VAIJAN. All rights reserved. Prices shown are current offers and may change with new collections.</div>
+  </div>
+</footer>
+
+<script>
+  const chips = document.querySelectorAll('.chip[data-filter]');
+  const cards = document.querySelectorAll('.card[data-cat]');
+  chips.forEach(chip => chip.addEventListener('click', () => {
+    chips.forEach(c => c.classList.remove('active'));
+    chip.classList.add('active');
+    const f = chip.dataset.filter;
+    cards.forEach(card => {
+      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
+    });
+  }));
+</script>
+</body>
+</html>
