@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VAIJAN | ভাইজান — Premium Clothing, Khulna</title>
 <meta name="description" content="VAIJAN — premium clothing brand from Khulna, Bangladesh. Winter Collection: premium 350+ GSM fleece hoodies. Cash on Delivery all over Bangladesh.">
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -23,6 +24,9 @@
   .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
   .logo{font-family:'Cinzel',serif;font-size:30px;font-weight:700;letter-spacing:10px;color:var(--gold)}
   .logo small{display:block;font-family:'Manrope',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);font-weight:600;margin-top:2px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;background:#fff}
+  .brand span{display:inline-block}
   .links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--muted)}
   .links a:hover{color:var(--gold2)}
   .btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--gold);transition:.2s}
@@ -92,7 +96,27 @@
   footer .logo{font-size:24px}
   footer a{color:var(--gold2)}
   .copy{margin-top:22px;font-size:12px;color:#77705f}
+  /* Order form */
+  .formbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fgrid .full{grid-column:1/-1}
+  label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
+  input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font-family:inherit;font-size:15px}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
+  .totbox{margin-top:18px;border:1px dashed var(--gold);border-radius:14px;padding:16px 18px;background:rgba(201,168,106,.06)}
+  .totbox .trow{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);padding:3px 0}
+  .totbox .trow.grand{font-size:19px;color:var(--text);font-weight:800;border-top:1px solid var(--line);margin-top:8px;padding-top:10px}
+  .totbox .trow.grand span:last-child{color:var(--gold2)}
+  .err{display:none;color:#ff9aa4;font-size:14px;font-weight:700;margin-top:12px}
+  .formlink{display:inline-block;margin-top:4px;font-size:13px;font-weight:700;color:var(--gold2)}
+  .formlink:hover{text-decoration:underline}
+  .done{display:none;text-align:center;padding:10px 0}
+  .done .tick{font-size:44px}
+  .done h3{font-size:22px;margin:8px 0}
+  .done p{color:var(--muted);font-size:14px}
+  .done img{margin:18px auto;border-radius:14px;border:1px solid var(--line);max-width:440px;width:100%}
   @media (max-width:900px){
+    .fgrid{grid-template-columns:1fr}
     .hero-in{grid-template-columns:1fr}
     .grid{grid-template-columns:1fr}
     .strip .wrap{grid-template-columns:repeat(2,1fr)}
@@ -106,14 +130,14 @@
 
 <header>
   <div class="wrap nav">
-    <a class="logo" href="#top">VAIJAN<small>THE NAME • THE LOOK • THE LEGACY</small></a>
+    <a class="logo brand" href="#top"><img src="images/logo.jpg" alt="Vaijan logo"><span>VAIJAN<small>THE NAME • THE LOOK • THE LEGACY</small></span></a>
     <nav class="links">
       <a href="#categories">Categories</a>
       <a href="#shop">Shop</a>
       <a href="#order">How to Order</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="btn btn-gold" href="https://m.me/vaijan662" target="_blank" rel="noopener">Order Now</a>
+    <a class="btn btn-gold" href="#orderform">Order Now</a>
   </div>
 </header>
 
@@ -127,7 +151,7 @@
       <span class="pill">Winter Offer — Hoodies at ৳750 only</span>
       <div class="hero-cta">
         <a class="btn btn-gold" href="#shop">Shop the Collection</a>
-        <a class="btn btn-wa" href="https://wa.me/8801569177407" target="_blank" rel="noopener">WhatsApp Order</a>
+        <a class="btn btn-ghost" href="#orderform">Order Online</a>
       </div>
     </div>
     <div>
@@ -158,8 +182,8 @@
           <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
           <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
           <div class="row">
-            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20Design%20A%20-%20Kalima%20Calligraphy%20Hoodie%20(750%2F-).%20Size%3A%20">WhatsApp Order</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+            <a class="btn btn-gold" href="#orderform" data-pick="A">🛒 Order Now</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
       </article>
@@ -174,8 +198,8 @@
           <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
           <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
           <div class="row">
-            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20Design%20B%20-%20Only%20Trust%20Allah%20Hoodie%20(750%2F-).%20Size%3A%20">WhatsApp Order</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+            <a class="btn btn-gold" href="#orderform" data-pick="B">🛒 Order Now</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
       </article>
@@ -186,12 +210,12 @@
         <div class="bd">
           <span class="badge">Bundle Offer</span>
           <h3>Winter Bundle — Design A + Design B</h3>
-          <p>Both signature hoodies together. One for you, one for your vai — or keep both looks in your own rotation. Same premium 350+ GSM fleece, both sizes of your choice.</p>
+          <p>Both signature hoodies together. One for you, one for your vai — or keep both looks in your own rotation. Same premium 350+ GSM fleece, both sizes of your choice. Plus <b style="color:var(--gold2)">FREE delivery anywhere in Bangladesh</b>.</p>
           <div class="sizes">Sizes: <b>M | L | XL | XXL</b> (each) &nbsp;•&nbsp; Colour: <b>Black</b></div>
-          <div class="price"><span class="now">৳1,399</span><span class="was">৳1,700</span><span class="save">Save ৳301</span></div>
+          <div class="price"><span class="now">৳1,300</span><span class="was">৳1,700</span><span class="save">Save ৳400 + FREE Delivery</span></div>
           <div class="row">
-            <a class="btn btn-wa" target="_blank" rel="noopener" href="https://wa.me/8801569177407?text=Hello%20Vaijan!%20I%20want%20to%20order%20the%20Winter%20Bundle%20-%20Design%20A%20%2B%20Design%20B%20(1%2C399%2F-).%20Sizes%3A%20">WhatsApp Order</a>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://m.me/vaijan662">Messenger</a>
+            <a class="btn btn-gold" href="#orderform" data-pick="BUNDLE">🛒 Order Now</a>
+            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
       </article>
@@ -214,10 +238,89 @@
     <p class="sub">Three simple steps — no advance payment needed.</p>
     <div class="steps">
       <div class="step"><div class="n">01</div><b>Choose Design &amp; Size</b><p>Pick Design A, Design B or the Bundle — and your size (M | L | XL | XXL). Please check your size carefully before ordering.</p></div>
-      <div class="step"><div class="n">02</div><b>Send Your Details</b><p>Message us on WhatsApp or Page inbox with: design, size, your name, mobile number and full address.</p></div>
-      <div class="step"><div class="n">03</div><b>Pay on Delivery</b><p>We ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single hoodie.</p></div>
+      <div class="step"><div class="n">02</div><b>Fill In &amp; Confirm</b><p>Use the order form on this page — choose design &amp; size, give your name, mobile number and full address, then press Confirm Order. No WhatsApp or Messenger needed.</p></div>
+      <div class="step"><div class="n">03</div><b>Pay on Delivery</b><p>We will call you to confirm, then ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single hoodie. <b>Bundle orders: delivery is FREE.</b></p></div>
     </div>
     <div class="note"><b>Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your size carefully before ordering.</div>
+  </div>
+</section>
+
+<section id="orderform">
+  <div class="wrap">
+    <h2>Place Your <span class="gold">Order</span></h2>
+    <p class="sub">Just select your product, fill in your details, and confirm — <b style="color:var(--gold2)">no WhatsApp or Messenger needed</b>. Your order goes straight into our order book, and you get a receipt image you can save. Pay cash on delivery.</p>
+    <div class="formbox">
+      <div id="formWrap">
+        <div class="fgrid">
+          <div>
+            <label for="fProduct">Product</label>
+            <select id="fProduct">
+              <option value="A">Design A — Kalima Calligraphy Hoodie (৳750)</option>
+              <option value="B">Design B — Only Trust Allah Hoodie (৳750)</option>
+              <option value="BUNDLE">Winter Bundle — Design A + Design B (৳1,300 + FREE Delivery)</option>
+            </select>
+          </div>
+          <div>
+            <label for="fQty">Quantity</label>
+            <select id="fQty">
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
+            </select>
+          </div>
+          <div>
+            <label for="fSize">Size</label>
+            <select id="fSize"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+          </div>
+          <div id="size2Wrap" style="display:none">
+            <label for="fSize2">Size — Design B (Bundle)</label>
+            <select id="fSize2"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+          </div>
+          <div>
+            <label for="fArea">Delivery Area</label>
+            <select id="fArea">
+              <option value="khulna">Inside Khulna</option>
+              <option value="dhaka">Dhaka City</option>
+              <option value="other">Other District</option>
+            </select>
+          </div>
+          <div>
+            <label for="fName">Your Name *</label>
+            <input id="fName" type="text" placeholder="e.g. Md. Rahim Uddin" autocomplete="name">
+          </div>
+          <div>
+            <label for="fPhone">Mobile Number (WhatsApp) *</label>
+            <input id="fPhone" type="tel" placeholder="01XXXXXXXXX" autocomplete="tel">
+          </div>
+          <div class="full">
+            <label for="fAddr">Full Delivery Address *</label>
+            <textarea id="fAddr" rows="2" placeholder="House / Road / Area / Thana / District"></textarea>
+          </div>
+          <div class="full">
+            <label for="fNote">Note (optional)</label>
+            <input id="fNote" type="text" placeholder="Anything we should know?">
+          </div>
+        </div>
+        <div class="totbox">
+          <div class="trow"><span>Product total</span><span id="tProduct">৳750</span></div>
+          <div class="trow"><span>Delivery charge (SteadFast)</span><span id="tDelivery">৳60</span></div>
+          <div class="trow grand"><span>Total — Cash on Delivery</span><span id="tGrand">৳810</span></div>
+        </div>
+        <div class="err" id="fErr"></div>
+        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-gold" id="fSubmit" type="button" style="cursor:pointer;font-family:inherit">Confirm Order</button>
+          <a class="btn btn-ghost" href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener">Visit our Facebook Page</a>
+        </div>
+      </div>
+      <div class="done" id="orderDone">
+        <div class="tick">✅</div>
+        <h3>Order Received!</h3>
+        <p id="doneText">Thank you! We will call to confirm your order shortly.</p>
+        <img id="receiptImg" alt="Your Vaijan order receipt">
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-gold" id="receiptDl" download="Vaijan_Receipt.png" href="#">📥 Save Receipt to Gallery</a>
+        </div>
+        <p style="margin-top:12px;font-size:13px">Tip: you can also long-press the receipt image to save it to your gallery.</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -252,6 +355,155 @@
       card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
     });
   }));
+</script>
+<script>
+/* ==== Vaijan website orders → Google Sheet database (Apps Script Web App) ==== */
+const ORDER_LOG_URL = '';
+const logoImg = new Image(); logoImg.src = 'images/logo.jpg';
+const PRICES = { A:750, B:750, BUNDLE:1300 };
+const PNAMES = { A:'Design A — Kalima Calligraphy Hoodie', B:'Design B — Only Trust Allah Hoodie', BUNDLE:'Winter Bundle — Design A + Design B' };
+const AREAS  = { khulna:'Inside Khulna', dhaka:'Dhaka City', other:'Other District' };
+const $ = id => document.getElementById(id);
+
+/* card Order Now buttons → preselect the product in the form */
+document.querySelectorAll('[data-pick]').forEach(el => {
+  el.addEventListener('click', () => { $('fProduct').value = el.dataset.pick; upd(); });
+});
+
+function deliveryFor(product, area, qty){
+  if(product === 'BUNDLE'){
+    return 0; /* Bundle offer: FREE delivery all over Bangladesh */
+  }
+  const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
+  return base + 20 * (qty - 1);
+}
+function calc(){
+  const p = $('fProduct').value, q = parseInt($('fQty').value, 10), area = $('fArea').value;
+  const ptotal = PRICES[p] * q;
+  const del = deliveryFor(p, area, q);
+  return { p, q, area, ptotal, del, grand: del === null ? null : ptotal + del };
+}
+function fmt(n){ return '৳' + n.toLocaleString('en-IN'); }
+function upd(){
+  const c = calc();
+  $('size2Wrap').style.display = c.p === 'BUNDLE' ? '' : 'none';
+  $('tProduct').textContent = fmt(c.ptotal);
+  $('tDelivery').textContent = c.del === null ? 'Courier bill (pay actual)' : (c.del === 0 ? 'FREE' : fmt(c.del));
+  $('tGrand').textContent = c.grand === null ? fmt(c.ptotal) + ' + courier bill' : fmt(c.grand);
+}
+['fProduct','fQty','fArea','fSize','fSize2'].forEach(id => $(id).addEventListener('change', upd));
+upd();
+
+function sizeText(c){
+  return c.p === 'BUNDLE' ? ('A: ' + $('fSize').value + ' / B: ' + $('fSize2').value) : $('fSize').value;
+}
+$('fSubmit').addEventListener('click', () => {
+  const name = $('fName').value.trim();
+  const phone = $('fPhone').value.replace(/[\s-]/g, '');
+  const addr = $('fAddr').value.trim();
+  const note = $('fNote').value.trim();
+  const err = $('fErr');
+  if(!name || !phone || addr.length < 8){ err.textContent = 'Please fill in your name, mobile number and full address.'; err.style.display = 'block'; return; }
+  if(!/^01[3-9]\d{8}$/.test(phone)){ err.textContent = 'Please give a valid mobile number (starts with 01, 11 digits).'; err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  const c = calc();
+  const oid = 'VJ' + Date.now().toString(36).toUpperCase();
+  const o = {
+    id: oid, time: new Date().toLocaleString('en-GB'), name, phone, addr,
+    area: AREAS[c.area], product: PNAMES[c.p], size: sizeText(c), qty: c.q,
+    productTotal: c.ptotal,
+    delivery: c.del === null ? 'Courier bill' : (c.del === 0 ? 'FREE' : c.del),
+    grandTotal: c.grand === null ? (c.ptotal + ' + courier bill') : c.grand,
+    note
+  };
+  /* save a copy in the customer's own browser */
+  try { const all = JSON.parse(localStorage.getItem('vaijan_orders') || '[]'); all.push(o); localStorage.setItem('vaijan_orders', JSON.stringify(all)); } catch(e){}
+  /* send to the Google Sheet database */
+  if(ORDER_LOG_URL){
+    fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(o) }).catch(()=>{});
+  }
+  /* receipt image (save to gallery) */
+  const url = drawReceipt(o);
+  $('receiptImg').src = url;
+  const dl = $('receiptDl'); dl.href = url; dl.setAttribute('download', 'Vaijan_Receipt_' + oid + '.png');
+  $('doneText').textContent = 'Order ID: ' + oid + ' — Thank you, ' + name.split(' ')[0] + '! Your order is confirmed in our order book. We will call ' + phone + ' shortly — no need to message anywhere. Save your receipt below.';
+  $('formWrap').style.display = 'none';
+  $('orderDone').style.display = 'block';
+  $('orderDone').scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+/* ==== Receipt image — black & gold Vaijan style ==== */
+function wrapC(x, text, maxW){
+  const words = String(text).split(' '); const lines = []; let line = '';
+  for(const w of words){ const t = line ? line + ' ' + w : w; if(x.measureText(t).width > maxW && line){ lines.push(line); line = w; } else line = t; }
+  if(line) lines.push(line); return lines.length ? lines : [''];
+}
+function drawReceipt(o){
+  const W = 880, M = 54; const c = document.createElement('canvas');
+  const x = c.getContext('2d');
+  x.font = "500 25px Manrope, sans-serif";
+  const addrLines = wrapC(x, o.addr, W - 2 * M - 130);
+  const H = 806 + addrLines.length * 34 + (o.note ? 40 : 0);
+  c.width = W; c.height = H;
+  x.fillStyle = '#0a0a0b'; x.fillRect(0, 0, W, H);
+  x.strokeStyle = '#c9a86a'; x.lineWidth = 3; x.strokeRect(10, 10, W - 20, H - 20);
+  /* header */
+  x.textAlign = 'center';
+  if(logoImg.complete && logoImg.naturalWidth){
+    x.save();
+    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.clip();
+    x.fillStyle = '#ffffff'; x.fillRect(W / 2 - 54, 38, 108, 108);
+    x.drawImage(logoImg, W / 2 - 54, 38, 108, 108);
+    x.restore();
+    x.strokeStyle = '#c9a86a'; x.lineWidth = 3;
+    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.stroke();
+  }
+  x.fillStyle = '#c9a86a'; x.font = "700 54px Cinzel, serif";
+  x.fillText('V A I J A N', W / 2, 200);
+  x.fillStyle = '#b7b0a0'; x.font = "600 17px Manrope, sans-serif";
+  x.fillText('T H E   N A M E  •  T H E   L O O K  •  T H E   L E G A C Y', W / 2, 234);
+  x.fillStyle = '#f4efe6'; x.font = "800 27px Manrope, sans-serif";
+  x.fillText('ORDER RECEIPT', W / 2, 278);
+  x.fillStyle = '#c9a86a'; x.fillRect(M, 298, W - 2 * M, 2);
+  x.textAlign = 'left';
+  let y = 346;
+  const row = (k, v, bold) => {
+    x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText(k, M, y);
+    x.fillStyle = '#f4efe6'; x.font = (bold ? "800" : "600") + " 24px Manrope, sans-serif"; x.fillText(v, M + 170, y);
+    y += 40;
+  };
+  row('Order ID', o.id, true);
+  row('Date', o.time);
+  row('Name', o.name);
+  row('Mobile', o.phone);
+  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Address', M, y);
+  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
+  addrLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
+  y += 8;
+  row('Area', o.area);
+  row('Product', o.product.length > 34 ? o.product.slice(0, 34) + '…' : o.product);
+  row('Size / Qty', o.size + '  ×  ' + o.qty);
+  if(o.note){ row('Note', o.note.length > 30 ? o.note.slice(0, 30) + '…' : o.note); }
+  y += 4;
+  x.fillStyle = '#c9a86a'; x.fillRect(M, y, W - 2 * M, 2); y += 44;
+  const trow = (k, v) => {
+    x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText(k, M, y);
+    x.fillStyle = '#f4efe6'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText(v, W - M, y); x.textAlign = 'left'; y += 38;
+  };
+  trow('Product total', fmt(o.productTotal));
+  trow('Delivery', typeof o.delivery === 'string' ? o.delivery : fmt(o.delivery));
+  x.fillStyle = '#c9a86a'; x.font = "800 29px Manrope, sans-serif";
+  x.fillText('TOTAL (COD)', M, y);
+  x.textAlign = 'right'; x.fillText(typeof o.grandTotal === 'number' ? fmt(o.grandTotal) : String(o.grandTotal), W - M, y); x.textAlign = 'left';
+  y += 54;
+  x.textAlign = 'center';
+  x.fillStyle = '#b7b0a0'; x.font = "600 19px Manrope, sans-serif";
+  x.fillText('Please check the product in front of the delivery rider.', W / 2, y); y += 30;
+  x.fillStyle = '#e6cd8f';
+  x.fillText('Thank you for shopping with VAIJAN — WhatsApp 01569-177407', W / 2, y);
+  x.textAlign = 'left';
+  return c.toDataURL('image/png');
+}
 </script>
 </body>
 </html>
