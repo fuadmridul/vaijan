@@ -369,6 +369,7 @@
         <h3 style="color:var(--gold2);margin:0 0 6px;font-size:20px">🛒 Your Cart</h3>
         <p style="font-size:13.5px;color:#b7b0a0;margin:0 0 10px">Change sizes and quantities here, then press <b style="color:var(--gold2)">Checkout</b> to order everything together — one delivery, one cash payment on delivery.</p>
         <div id="cartRows"></div>
+        <div id="cartDiscRow" style="display:none;justify-content:space-between;padding-top:8px;color:var(--gold2)"><span>🎁 Bundle combo discount (A + B)</span><b id="cartDisc">−৳0</b></div>
         <div style="display:flex;justify-content:space-between;border-top:1px solid #2a2a2e;padding-top:10px;margin-top:4px"><span>Cart product total</span><b id="cartTotal">৳0</b></div>
         <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
           <button class="btn btn-gold" id="cartCheckout" type="button" style="cursor:pointer;font-family:inherit">🛒 View Cart &amp; Checkout →</button>
@@ -515,9 +516,13 @@ let cartMode = false;
 function saveCart(){ try { localStorage.setItem('vaijan_cart', JSON.stringify(cart)); } catch(e){} }
 function sizeOpts(sel){ return ['M','L','XL','XXL'].map(s => '<option' + (s === sel ? ' selected' : '') + '>' + s + '</option>').join(''); }
 function cartTotals(){
-  let ptotal = 0, totalQty = 0, awQty = 0, hasBundle = false;
-  cart.forEach(it => { ptotal += PRICES[it.p] * it.qty; totalQty += it.qty; if(it.p.indexOf('AW') === 0) awQty += it.qty; if(it.p === 'BUNDLE') hasBundle = true; });
-  return { ptotal, totalQty, awQty, hasBundle };
+  let subtotal = 0, totalQty = 0, awQty = 0, hasBundle = false, qtyA = 0, qtyB = 0;
+  cart.forEach(it => { subtotal += PRICES[it.p] * it.qty; totalQty += it.qty; if(it.p.indexOf('AW') === 0) awQty += it.qty; if(it.p === 'BUNDLE') hasBundle = true; if(it.p === 'A') qtyA += it.qty; if(it.p === 'B') qtyB += it.qty; });
+  /* Combo match: Design A + Design B together = Winter Bundle (1300 instead of 1500) → 200 off per pair */
+  const pairs = Math.min(qtyA, qtyB);
+  const discount = pairs * 200;
+  if(pairs > 0) hasBundle = true;
+  return { subtotal, discount, pairs, ptotal: subtotal - discount, totalQty, awQty, hasBundle };
 }
 function cartDelivery(area){
   const t = cartTotals();
@@ -544,6 +549,8 @@ function renderCart(){
       + '<button type="button" class="crm" data-ci="' + i + '" data-crm="1" title="Remove">✕</button></div>';
   }).join('');
   $('cartTotal').textContent = fmt(t.ptotal);
+  $('cartDiscRow').style.display = t.discount > 0 ? 'flex' : 'none';
+  if(t.discount > 0) $('cartDisc').textContent = '−' + fmt(t.discount);
   box.querySelectorAll('select[data-ci]').forEach(sel => sel.addEventListener('change', () => { cart[+sel.dataset.ci][sel.dataset.cf] = sel.value; saveCart(); }));
   box.querySelectorAll('button[data-cq]').forEach(b => b.addEventListener('click', () => { const it = cart[+b.dataset.ci]; it.qty = Math.min(5, Math.max(1, it.qty + (+b.dataset.cq))); saveCart(); renderCart(); if(cartMode) upd(); }));
   box.querySelectorAll('button[data-crm]').forEach(b => b.addEventListener('click', () => { cart.splice(+b.dataset.ci, 1); saveCart(); renderCart(); if(cartMode) upd(); }));
@@ -658,7 +665,7 @@ function drawReceipt(o){
   x.font = "500 25px Manrope, sans-serif";
   const addrLines = wrapC(x, o.addr, W - 2 * M - 130);
   const prodLines = wrapC(x, o.product, W - 2 * M - 130);
-  const H = 806 + addrLines.length * 34 + (prodLines.length - 1) * 34 + (o.note ? 40 : 0);
+  const H = 806 + addrLines.length * 34 + (prodLines.length - 1) * 34 + (o.note ? 40 : 0) + (o.discount ? 78 : 0);
   c.width = W; c.height = H;
   x.fillStyle = '#0a0a0b'; x.fillRect(0, 0, W, H);
   x.strokeStyle = '#c9a86a'; x.lineWidth = 3; x.strokeRect(10, 10, W - 20, H - 20);
@@ -708,6 +715,11 @@ function drawReceipt(o){
     x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText(k, M, y);
     x.fillStyle = '#f4efe6'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText(v, W - M, y); x.textAlign = 'left'; y += 38;
   };
+  if(o.discount){
+    trow('Subtotal', fmt(o.subtotal));
+    x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText('Combo discount', M, y);
+    x.fillStyle = '#e6cd8f'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText('−' + fmt(o.discount), W - M, y); x.textAlign = 'left'; y += 38;
+  }
   trow('Product total', fmt(o.productTotal));
   trow('Delivery', typeof o.delivery === 'string' ? o.delivery : fmt(o.delivery));
   x.fillStyle = '#c9a86a'; x.font = "800 29px Manrope, sans-serif";
