@@ -124,6 +124,16 @@
     h1{font-size:38px}
     .links{display:none}
   }
+  /* ==== cart ==== */
+  #cartFab{position:fixed;right:18px;bottom:18px;z-index:60;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#171204;border:none;border-radius:999px;padding:13px 22px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.55);font-family:inherit;display:none}
+  #cartToast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);z-index:61;background:#1d2b1d;color:#b9e6b9;border:1px solid #3f7a3f;padding:10px 20px;border-radius:999px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:.25s}
+  #cartToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .crow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-top:1px solid #26262a}
+  .crow .cinfo{flex:1 1 200px}.crow .cinfo b{display:block;font-size:14.5px}.crow .cinfo span{font-size:12.5px;color:#b7b0a0}
+  .crow select{background:var(--panel2);color:var(--text);border:1px solid #333;border-radius:8px;padding:5px 7px;font-family:inherit}
+  .crow .cqty{display:flex;align-items:center;gap:8px}
+  .crow .cqty button,.crow .crm{background:var(--panel2);color:var(--gold2);border:1px solid #3a3a3f;border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:15px;line-height:1}
+  .crow .cline{font-weight:800;min-width:64px;text-align:right}
 </style>
 </head>
 <body>
@@ -183,6 +193,7 @@
           <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="A">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="A" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -199,6 +210,7 @@
           <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="B">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="B" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -215,6 +227,7 @@
           <div class="price"><span class="now">৳1,300</span><span class="was">৳1,700</span><span class="save">Save ৳400 + FREE Delivery</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="BUNDLE">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="BUNDLE" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -231,6 +244,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW1">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW1" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -247,6 +261,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW2">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW2" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -263,6 +278,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW3">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW3" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -279,6 +295,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW4">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW4" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -295,6 +312,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW5">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW5" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -311,6 +329,7 @@
           <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
           <div class="row">
             <a class="btn btn-gold" href="#orderform" data-pick="AW7">🛒 Order Now</a>
+            <button type="button" class="btn btn-ghost" data-add="AW7" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
             <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
           </div>
         </div>
@@ -334,7 +353,7 @@
     <p class="sub">Three simple steps — no advance payment needed.</p>
     <div class="steps">
       <div class="step"><div class="n">01</div><b>Choose Design &amp; Size</b><p>Pick a hoodie (Design A / B), the Bundle, or any Acid Wash tee — and your size (M | L | XL | XXL). Please check your size carefully before ordering.</p></div>
-      <div class="step"><div class="n">02</div><b>Fill In &amp; Confirm</b><p>Use the order form on this page — choose design &amp; size, give your name, mobile number and full address, then press Confirm Order. No WhatsApp or Messenger needed.</p></div>
+      <div class="step"><div class="n">02</div><b>Fill In &amp; Confirm</b><p>Order one item with the form below — or press <b>Add to Cart</b> on several products and checkout together. Give your name, mobile number and full address, then press Confirm Order. No WhatsApp or Messenger needed.</p></div>
       <div class="step"><div class="n">03</div><b>Pay on Delivery</b><p>We will call you to confirm, then ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single item. <b>Bundle orders and any 2 acid wash tees: delivery is FREE.</b></p></div>
     </div>
     <div class="note"><b>Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your size carefully before ordering.</div>
@@ -346,9 +365,20 @@
     <h2>Place Your <span class="gold">Order</span></h2>
     <p class="sub">Just select your product, fill in your details, and confirm — <b style="color:var(--gold2)">no WhatsApp or Messenger needed</b>. Your order goes straight into our order book, and you get a receipt image you can save. Pay cash on delivery.</p>
     <div class="formbox">
+      <div id="cartBox" style="display:none;margin-bottom:24px">
+        <h3 style="color:var(--gold2);margin:0 0 6px;font-size:20px">🛒 Your Cart</h3>
+        <p style="font-size:13.5px;color:#b7b0a0;margin:0 0 10px">Change sizes and quantities here, then press <b style="color:var(--gold2)">Checkout</b> to order everything together — one delivery, one cash payment on delivery.</p>
+        <div id="cartRows"></div>
+        <div style="display:flex;justify-content:space-between;border-top:1px solid #2a2a2e;padding-top:10px;margin-top:4px"><span>Cart product total</span><b id="cartTotal">৳0</b></div>
+        <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-gold" id="cartCheckout" type="button" style="cursor:pointer;font-family:inherit">Checkout — Order All Together →</button>
+          <button class="btn btn-ghost" id="cartClear" type="button" style="cursor:pointer;font-family:inherit">Clear Cart</button>
+        </div>
+        <div id="cartModeNote" style="display:none;margin-top:14px;font-size:14px;color:var(--gold2)">✔ Cart checkout is ON — the form below will order your cart items together. <a href="#" id="exitCartMode" style="color:var(--gold2);text-decoration:underline">Order a single product instead</a></div>
+      </div>
       <div id="formWrap">
         <div class="fgrid">
-          <div>
+          <div id="cellProduct">
             <label for="fProduct">Product</label>
             <select id="fProduct">
               <option value="A">Design A — Kalima Calligraphy Hoodie (৳750)</option>
@@ -362,13 +392,13 @@
               <option value="AW7">Acid Wash Tee — ALPHA INSTINCT Tiger (৳450)</option>
             </select>
           </div>
-          <div>
+          <div id="cellQty">
             <label for="fQty">Quantity</label>
             <select id="fQty">
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
             </select>
           </div>
-          <div>
+          <div id="cellSize">
             <label for="fSize">Size</label>
             <select id="fSize"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
           </div>
@@ -472,8 +502,67 @@ const $ = id => document.getElementById(id);
 
 /* card Order Now buttons → preselect the product in the form */
 document.querySelectorAll('[data-pick]').forEach(el => {
-  el.addEventListener('click', () => { $('fProduct').value = el.dataset.pick; upd(); });
+  el.addEventListener('click', () => { cartMode = false; setFormMode(); $('fProduct').value = el.dataset.pick; upd(); });
 });
+
+/* ==== Shopping cart ==== */
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('vaijan_cart') || '[]'); } catch(e){ cart = []; }
+let cartMode = false;
+function saveCart(){ try { localStorage.setItem('vaijan_cart', JSON.stringify(cart)); } catch(e){} }
+function sizeOpts(sel){ return ['M','L','XL','XXL'].map(s => '<option' + (s === sel ? ' selected' : '') + '>' + s + '</option>').join(''); }
+function cartTotals(){
+  let ptotal = 0, totalQty = 0, awQty = 0, hasBundle = false;
+  cart.forEach(it => { ptotal += PRICES[it.p] * it.qty; totalQty += it.qty; if(it.p.indexOf('AW') === 0) awQty += it.qty; if(it.p === 'BUNDLE') hasBundle = true; });
+  return { ptotal, totalQty, awQty, hasBundle };
+}
+function cartDelivery(area){
+  const t = cartTotals();
+  if(t.hasBundle || t.awQty >= 2) return 0; /* bundle orders + any 2 acid wash tees: FREE delivery */
+  const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
+  return base + 20 * (t.totalQty - 1);
+}
+function renderCart(){
+  const box = $('cartBox');
+  const t = cartTotals();
+  $('cartFabCount').textContent = t.totalQty;
+  $('cartFabSum').textContent = fmt(t.ptotal);
+  $('cartFab').style.display = cart.length ? 'block' : 'none';
+  if(!cart.length){ box.style.display = 'none'; if(cartMode){ cartMode = false; setFormMode(); } return; }
+  box.style.display = 'block';
+  $('cartRows').innerHTML = cart.map((it, i) => {
+    const sizeCtl = it.p === 'BUNDLE'
+      ? '<label style="font-size:12px;color:#b7b0a0">Size A <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label> <label style="font-size:12px;color:#b7b0a0">Size B <select data-ci="' + i + '" data-cf="s2">' + sizeOpts(it.s2) + '</select></label>'
+      : '<label style="font-size:12px;color:#b7b0a0">Size <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label>';
+    return '<div class="crow"><div class="cinfo"><b>' + PNAMES[it.p] + '</b><span>' + fmt(PRICES[it.p]) + ' each</span></div>'
+      + '<div class="cctl">' + sizeCtl + '</div>'
+      + '<div class="cqty"><button type="button" data-ci="' + i + '" data-cq="-1">−</button><span>' + it.qty + '</span><button type="button" data-ci="' + i + '" data-cq="1">+</button></div>'
+      + '<div class="cline">' + fmt(PRICES[it.p] * it.qty) + '</div>'
+      + '<button type="button" class="crm" data-ci="' + i + '" data-crm="1" title="Remove">✕</button></div>';
+  }).join('');
+  $('cartTotal').textContent = fmt(t.ptotal);
+  box.querySelectorAll('select[data-ci]').forEach(sel => sel.addEventListener('change', () => { cart[+sel.dataset.ci][sel.dataset.cf] = sel.value; saveCart(); }));
+  box.querySelectorAll('button[data-cq]').forEach(b => b.addEventListener('click', () => { const it = cart[+b.dataset.ci]; it.qty = Math.min(5, Math.max(1, it.qty + (+b.dataset.cq))); saveCart(); renderCart(); if(cartMode) upd(); }));
+  box.querySelectorAll('button[data-crm]').forEach(b => b.addEventListener('click', () => { cart.splice(+b.dataset.ci, 1); saveCart(); renderCart(); if(cartMode) upd(); }));
+}
+function setFormMode(){
+  ['cellProduct','cellQty','cellSize'].forEach(id => { const el = $(id); if(el) el.style.display = cartMode ? 'none' : ''; });
+  $('cartModeNote').style.display = cartMode ? 'block' : 'none';
+}
+document.querySelectorAll('[data-add]').forEach(el => {
+  el.addEventListener('click', () => {
+    const p = el.dataset.add;
+    const ex = cart.find(it => it.p === p);
+    if(ex){ if(ex.qty < 5) ex.qty++; } else { cart.push({ p, s1:'L', s2:'L', qty:1 }); }
+    saveCart(); renderCart();
+    const t = $('cartToast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1400);
+  });
+});
+$('cartFab').addEventListener('click', () => { $('cartBox').scrollIntoView({ behavior:'smooth', block:'center' }); });
+$('cartCheckout').addEventListener('click', () => { cartMode = true; setFormMode(); upd(); $('orderform').scrollIntoView({ behavior:'smooth' }); });
+$('exitCartMode').addEventListener('click', e => { e.preventDefault(); cartMode = false; setFormMode(); upd(); });
+$('cartClear').addEventListener('click', () => { cart = []; saveCart(); renderCart(); upd(); });
+renderCart();
 
 function deliveryFor(product, area, qty){
   if(product === 'BUNDLE'){
@@ -486,6 +575,12 @@ function deliveryFor(product, area, qty){
   return base + 20 * (qty - 1);
 }
 function calc(){
+  const area0 = $('fArea').value;
+  if(cartMode && cart.length){
+    const t = cartTotals();
+    const del = cartDelivery(area0);
+    return { p:'CART', q:t.totalQty, area:area0, ptotal:t.ptotal, del, grand:t.ptotal + del };
+  }
   const p = $('fProduct').value, q = parseInt($('fQty').value, 10), area = $('fArea').value;
   const ptotal = PRICES[p] * q;
   const del = deliveryFor(p, area, q);
@@ -516,9 +611,14 @@ $('fSubmit').addEventListener('click', () => {
   err.style.display = 'none';
   const c = calc();
   const oid = 'VJ' + Date.now().toString(36).toUpperCase();
+  let prodText, sizeVal, qtyVal;
+  if(cartMode && cart.length){
+    prodText = cart.map(it => PNAMES[it.p] + ' (' + (it.p === 'BUNDLE' ? 'A:' + it.s1 + ' / B:' + it.s2 : it.s1) + ') ×' + it.qty).join('; ');
+    sizeVal = '—'; qtyVal = c.q;
+  } else { prodText = PNAMES[c.p]; sizeVal = sizeText(c); qtyVal = c.q; }
   const o = {
     id: oid, time: new Date().toLocaleString('en-GB'), name, phone, addr,
-    area: AREAS[c.area], product: PNAMES[c.p], size: sizeText(c), qty: c.q,
+    area: AREAS[c.area], product: prodText, size: sizeVal, qty: qtyVal,
     productTotal: c.ptotal,
     delivery: c.del === null ? 'Courier bill' : (c.del === 0 ? 'FREE' : c.del),
     grandTotal: c.grand === null ? (c.ptotal + ' + courier bill') : c.grand,
@@ -530,6 +630,8 @@ $('fSubmit').addEventListener('click', () => {
   if(ORDER_LOG_URL){
     fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(o) }).catch(()=>{});
   }
+  /* a completed cart order empties the cart */
+  if(cartMode){ cart = []; saveCart(); cartMode = false; renderCart(); setFormMode(); }
   /* receipt image (save to gallery) */
   const url = drawReceipt(o);
   $('receiptImg').src = url;
@@ -551,7 +653,8 @@ function drawReceipt(o){
   const x = c.getContext('2d');
   x.font = "500 25px Manrope, sans-serif";
   const addrLines = wrapC(x, o.addr, W - 2 * M - 130);
-  const H = 806 + addrLines.length * 34 + (o.note ? 40 : 0);
+  const prodLines = wrapC(x, o.product, W - 2 * M - 130);
+  const H = 806 + addrLines.length * 34 + (prodLines.length - 1) * 34 + (o.note ? 40 : 0);
   c.width = W; c.height = H;
   x.fillStyle = '#0a0a0b'; x.fillRect(0, 0, W, H);
   x.strokeStyle = '#c9a86a'; x.lineWidth = 3; x.strokeRect(10, 10, W - 20, H - 20);
@@ -589,7 +692,10 @@ function drawReceipt(o){
   addrLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
   y += 8;
   row('Area', o.area);
-  row('Product', o.product.length > 34 ? o.product.slice(0, 34) + '…' : o.product);
+  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Product', M, y);
+  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
+  prodLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
+  y += 8;
   row('Size / Qty', o.size + '  ×  ' + o.qty);
   if(o.note){ row('Note', o.note.length > 30 ? o.note.slice(0, 30) + '…' : o.note); }
   y += 4;
@@ -613,5 +719,7 @@ function drawReceipt(o){
   return c.toDataURL('image/png');
 }
 </script>
+<button id="cartFab" type="button">🛒 Cart (<span id="cartFabCount">0</span>) • <span id="cartFabSum">৳0</span></button>
+<div id="cartToast">Added to cart ✓</div>
 </body>
 </html>
