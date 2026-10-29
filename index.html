@@ -476,6 +476,9 @@
   </div>
 </footer>
 
+<button id="cartFab" type="button">🛒 Cart (<span id="cartFabCount">0</span>) • <span id="cartFabSum">৳0</span></button>
+<div id="cartToast">Added to cart ✓</div>
+
 <script>
   const chips = document.querySelectorAll('.chip[data-filter]');
   const cards = document.querySelectorAll('.card[data-cat]');
@@ -719,7 +722,5 @@ function drawReceipt(o){
   return c.toDataURL('image/png');
 }
 </script>
-<button id="cartFab" type="button">🛒 Cart (<span id="cartFabCount">0</span>) • <span id="cartFabSum">৳0</span></button>
-<div id="cartToast">Added to cart ✓</div>
 </body>
 </html>
