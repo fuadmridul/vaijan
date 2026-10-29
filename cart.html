@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart — VAIJAN | ভাইজান</title>
+<link rel="icon" type="image/jpeg" href="images/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b; --panel:#141416; --panel2:#1a1a1d; --gold:#c9a86a; --gold2:#e6cd8f;
+    --text:#f4efe6; --muted:#b7b0a0; --line:#2a2a2e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;background:#fff}
+  .logo{font-family:'Cinzel',serif;font-size:26px;font-weight:700;letter-spacing:8px;color:var(--gold)}
+  .logo small{display:block;font-family:'Manrope',sans-serif;font-size:9px;letter-spacing:4px;color:var(--muted);font-weight:600;margin-top:2px}
+  .btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--gold);transition:.2s;background:transparent;color:var(--gold2);cursor:pointer;font-family:inherit}
+  .btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#171204}
+  .btn:hover{transform:translateY(-1px)}
+  h1{font-size:30px;margin:34px 0 6px}
+  h1 .gold{color:var(--gold)}
+  .sub{color:var(--muted);margin-bottom:22px}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:22px}
+  .crow{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding:14px 0;border-top:1px solid var(--line)}
+  .crow:first-child{border-top:none;padding-top:2px}
+  .crow .thumb{width:74px;height:74px;border-radius:12px;object-fit:cover;border:1px solid var(--line)}
+  .crow .cinfo{flex:1 1 190px}
+  .crow .cinfo b{display:block;font-size:15px}
+  .crow .cinfo span{font-size:12.5px;color:var(--muted)}
+  .crow select{background:var(--panel2);color:var(--text);border:1px solid #333;border-radius:8px;padding:6px 8px;font-family:inherit}
+  .crow .cqty{display:flex;align-items:center;gap:9px}
+  .crow .cqty button,.crow .crm{background:var(--panel2);color:var(--gold2);border:1px solid #3a3a3f;border-radius:8px;width:30px;height:30px;cursor:pointer;font-size:16px;line-height:1}
+  .crow .cline{font-weight:800;min-width:70px;text-align:right}
+  label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin:0 0 6px}
+  input,textarea,select.fsel{width:100%;background:var(--panel2);color:var(--text);border:1px solid #333;border-radius:10px;padding:11px 12px;font-family:inherit;font-size:15px}
+  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .fgrid .full{grid-column:1/-1}
+  @media(max-width:640px){.fgrid{grid-template-columns:1fr}}
+  .trow{display:flex;justify-content:space-between;padding:7px 0;font-size:15px}
+  .trow.grand{border-top:1px solid var(--line);margin-top:8px;padding-top:12px;font-size:18px;font-weight:800;color:var(--gold2)}
+  .err{display:none;background:#2b1215;border:1px solid #7a2430;color:#f3b7be;border-radius:10px;padding:10px 14px;font-size:14px;margin-top:14px}
+  .note{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;font-size:13.5px;color:var(--muted);margin-bottom:22px}
+  .empty{text-align:center;padding:44px 10px}
+  .done{display:none;text-align:center}
+  .done .tick{font-size:44px}
+  .done img{margin:18px auto;border-radius:12px;max-width:min(440px,100%)}
+  footer{border-top:1px solid var(--line);margin-top:36px;padding:22px 0 30px;color:var(--muted);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="nav">
+      <a class="brand" href="index.html">
+        <img src="images/logo.jpg" alt="Vaijan logo">
+        <span class="logo">VAIJAN<small>THE NAME • THE LOOK • THE LEGACY</small></span>
+      </a>
+      <a class="btn" href="index.html">← Continue Shopping</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>🛒 Your <span class="gold">Cart</span></h1>
+  <p class="sub">Review your items, choose sizes, add your delivery details — then confirm. Pay cash on delivery.</p>
+
+  <div id="cartMain">
+    <div class="panel">
+      <div id="cartRows"></div>
+      <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
+        <button class="btn" id="clearBtn" type="button">Clear Cart</button>
+        <a class="btn" href="index.html">+ Add More Products</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="fgrid">
+        <div>
+          <label for="fArea">Delivery Area</label>
+          <select id="fArea" class="fsel">
+            <option value="khulna">Inside Khulna</option>
+            <option value="dhaka">Dhaka City</option>
+            <option value="other">Other District</option>
+          </select>
+        </div>
+        <div>
+          <label for="fName">Your Name *</label>
+          <input id="fName" type="text" placeholder="e.g. Md. Rahim Uddin" autocomplete="name">
+        </div>
+        <div>
+          <label for="fPhone">Mobile Number (WhatsApp) *</label>
+          <input id="fPhone" type="tel" placeholder="01XXXXXXXXX" autocomplete="tel">
+        </div>
+        <div class="full">
+          <label for="fAddr">Full Delivery Address *</label>
+          <textarea id="fAddr" rows="2" placeholder="House / Road / Area / Thana / District"></textarea>
+        </div>
+        <div class="full">
+          <label for="fNote">Note (optional)</label>
+          <input id="fNote" type="text" placeholder="Anything we should know?">
+        </div>
+      </div>
+      <div style="margin-top:18px">
+        <div class="trow"><span>Product total</span><span id="tProduct">৳0</span></div>
+        <div class="trow"><span>Delivery charge (SteadFast)</span><span id="tDelivery">—</span></div>
+        <div class="trow grand"><span>Total — Cash on Delivery</span><span id="tGrand">৳0</span></div>
+      </div>
+      <div class="err" id="fErr"></div>
+      <div style="margin-top:18px">
+        <button class="btn btn-gold" id="fSubmit" type="button" style="font-size:16px;padding:14px 30px">✓ Confirm Order</button>
+      </div>
+    </div>
+
+    <div class="note"><b style="color:var(--gold2)">Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your sizes carefully. Delivery: Bundle orders and any 2 acid wash tees get <b>FREE delivery</b>; otherwise Khulna ৳60 • Dhaka ৳115 • other districts ৳135 (+৳20 per extra item).</div>
+  </div>
+
+  <div class="panel empty" id="cartEmpty" style="display:none">
+    <div style="font-size:40px">🛒</div>
+    <h2 style="margin:10px 0 6px">Your cart is empty</h2>
+    <p style="color:var(--muted);margin-bottom:18px">Add some products from the shop first.</p>
+    <a class="btn btn-gold" href="index.html">Go to Shop →</a>
+  </div>
+
+  <div class="panel done" id="orderDone">
+    <div class="tick">✅</div>
+    <h2>Order Received!</h2>
+    <p id="doneText" style="color:var(--muted)">Thank you! We will call to confirm your order shortly.</p>
+    <img id="receiptImg" alt="Your Vaijan order receipt">
+    <div>
+      <a class="btn btn-gold" id="receiptDl" download="Vaijan_Receipt.png" href="#">📥 Save Receipt to Gallery</a>
+      <a class="btn" href="index.html" style="margin-left:10px">Continue Shopping</a>
+    </div>
+    <p style="margin-top:12px;font-size:13px;color:var(--muted)">Tip: you can also long-press the receipt image to save it to your gallery.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 VAIJAN — । Vaijan । ভাইজান ।, Khulna, Bangladesh • WhatsApp / Call: <a href="https://wa.me/8801569177407" style="color:var(--gold2)">+880 1569-177407</a> • Delivery: SteadFast Courier, all Bangladesh</div>
+</footer>
+
+<script>
+/* ==== Vaijan cart page — full cart + checkout; orders go to the same Google Sheet database ==== */
+const ORDER_LOG_URL = 'https://script.google.com/macros/s/AKfycbzIH-h0Y_36mRN-ehYNSSN1IVvCawk4HRx8_L2unYIQTRc6N2V_AlXbqm4UAfjuY2GUUg/exec';
+const logoImg = new Image(); logoImg.src = 'images/logo.jpg';
+const PRICES = { A:750, B:750, BUNDLE:1300, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450 };
+const PNAMES = { A:'Design A — Kalima Calligraphy Hoodie', B:'Design B — Only Trust Allah Hoodie', BUNDLE:'Winter Bundle — Design A + Design B',
+  AW1:'Acid Wash Tee — One Piece / Jolly Roger', AW2:'Acid Wash Tee — LIVE YOUR LIFE Forest', AW3:'Acid Wash Tee — Kakashi',
+  AW4:'Acid Wash Tee — Spider-Man', AW5:'Acid Wash Tee — Zulfiqar Sword',
+  AW7:'Acid Wash Tee — ALPHA INSTINCT Tiger' };
+const PIMG = { A:'images/hoodie-a.jpg', B:'images/hoodie-b.jpg', BUNDLE:'images/winter-poster.png',
+  AW1:'images/acid-1.jpg', AW2:'images/acid-2.jpg', AW3:'images/acid-3.jpg', AW4:'images/acid-4.jpg', AW5:'images/acid-5.jpg', AW7:'images/acid-7.jpg' };
+const AREAS  = { khulna:'Inside Khulna', dhaka:'Dhaka City', other:'Other District' };
+const $ = id => document.getElementById(id);
+function fmt(n){ return '৳' + n.toLocaleString('en-IN'); }
+
+let cart = [];
+try { cart = JSON.parse(localStorage.getItem('vaijan_cart') || '[]'); } catch(e){ cart = []; }
+cart = cart.filter(it => PRICES[it.p]);
+function saveCart(){ try { localStorage.setItem('vaijan_cart', JSON.stringify(cart)); } catch(e){} }
+function sizeOpts(sel){ return ['M','L','XL','XXL'].map(s => '<option' + (s === sel ? ' selected' : '') + '>' + s + '</option>').join(''); }
+function totals(){
+  let ptotal = 0, totalQty = 0, awQty = 0, hasBundle = false;
+  cart.forEach(it => { ptotal += PRICES[it.p] * it.qty; totalQty += it.qty; if(it.p.indexOf('AW') === 0) awQty += it.qty; if(it.p === 'BUNDLE') hasBundle = true; });
+  return { ptotal, totalQty, awQty, hasBundle };
+}
+function delivery(area){
+  const t = totals();
+  if(t.hasBundle || t.awQty >= 2) return 0; /* bundle orders + any 2 acid wash tees: FREE delivery */
+  const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
+  return base + 20 * (t.totalQty - 1);
+}
+function render(){
+  const empty = !cart.length;
+  $('cartMain').style.display = empty ? 'none' : '';
+  $('cartEmpty').style.display = empty ? 'block' : 'none';
+  if(empty) return;
+  $('cartRows').innerHTML = cart.map((it, i) => {
+    const sizeCtl = it.p === 'BUNDLE'
+      ? '<label style="font-size:12px;color:var(--muted)">Size A <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label> <label style="font-size:12px;color:var(--muted)">Size B <select data-ci="' + i + '" data-cf="s2">' + sizeOpts(it.s2) + '</select></label>'
+      : '<label style="font-size:12px;color:var(--muted)">Size <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label>';
+    return '<div class="crow"><img class="thumb" src="' + PIMG[it.p] + '" alt="">'
+      + '<div class="cinfo"><b>' + PNAMES[it.p] + '</b><span>' + fmt(PRICES[it.p]) + ' each</span></div>'
+      + '<div>' + sizeCtl + '</div>'
+      + '<div class="cqty"><button type="button" data-ci="' + i + '" data-cq="-1">−</button><span>' + it.qty + '</span><button type="button" data-ci="' + i + '" data-cq="1">+</button></div>'
+      + '<div class="cline">' + fmt(PRICES[it.p] * it.qty) + '</div>'
+      + '<button type="button" class="crm" data-ci="' + i + '" data-crm="1" title="Remove">✕</button></div>';
+  }).join('');
+  $('cartRows').querySelectorAll('select[data-ci]').forEach(sel => sel.addEventListener('change', () => { cart[+sel.dataset.ci][sel.dataset.cf] = sel.value; saveCart(); }));
+  $('cartRows').querySelectorAll('button[data-cq]').forEach(b => b.addEventListener('click', () => { const it = cart[+b.dataset.ci]; it.qty = Math.min(5, Math.max(1, it.qty + (+b.dataset.cq))); saveCart(); render(); }));
+  $('cartRows').querySelectorAll('button[data-crm]').forEach(b => b.addEventListener('click', () => { cart.splice(+b.dataset.ci, 1); saveCart(); render(); }));
+  updTotals();
+}
+function updTotals(){
+  const t = totals();
+  const del = delivery($('fArea').value);
+  $('tProduct').textContent = fmt(t.ptotal);
+  $('tDelivery').textContent = del === 0 ? 'FREE' : fmt(del);
+  $('tGrand').textContent = fmt(t.ptotal + del);
+}
+$('fArea').addEventListener('change', updTotals);
+$('clearBtn').addEventListener('click', () => { cart = []; saveCart(); render(); });
+render();
+
+$('fSubmit').addEventListener('click', () => {
+  const name = $('fName').value.trim();
+  const phone = $('fPhone').value.replace(/[\s-]/g, '');
+  const addr = $('fAddr').value.trim();
+  const note = $('fNote').value.trim();
+  const err = $('fErr');
+  if(!cart.length){ err.textContent = 'Your cart is empty.'; err.style.display = 'block'; return; }
+  if(!name || !phone || addr.length < 8){ err.textContent = 'Please fill in your name, mobile number and full address.'; err.style.display = 'block'; return; }
+  if(!/^01[3-9]\d{8}$/.test(phone)){ err.textContent = 'Please give a valid mobile number (starts with 01, 11 digits).'; err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  const t = totals();
+  const area = $('fArea').value;
+  const del = delivery(area);
+  const oid = 'VJ' + Date.now().toString(36).toUpperCase();
+  const prodText = cart.map(it => PNAMES[it.p] + ' (' + (it.p === 'BUNDLE' ? 'A:' + it.s1 + ' / B:' + it.s2 : it.s1) + ') ×' + it.qty).join('; ');
+  const o = {
+    id: oid, time: new Date().toLocaleString('en-GB'), name, phone, addr,
+    area: AREAS[area], product: prodText, size: '—', qty: t.totalQty,
+    productTotal: t.ptotal,
+    delivery: del === 0 ? 'FREE' : del,
+    grandTotal: t.ptotal + del,
+    note
+  };
+  /* receipt first, so a copy can be saved into the orders database too */
+  const receiptUrl = drawReceipt(o);
+  try { const all = JSON.parse(localStorage.getItem('vaijan_orders') || '[]'); all.push(o); localStorage.setItem('vaijan_orders', JSON.stringify(all)); } catch(e){}
+  if(ORDER_LOG_URL){
+    const payload = Object.assign({}, o, { receipt: receiptUrl });
+    fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) }).catch(()=>{});
+  }
+  cart = []; saveCart();
+  $('receiptImg').src = receiptUrl;
+  const dl = $('receiptDl'); dl.href = receiptUrl; dl.setAttribute('download', 'Vaijan_Receipt_' + oid + '.png');
+  $('doneText').textContent = 'Order ID: ' + oid + ' — Thank you, ' + name.split(' ')[0] + '! Your order is confirmed in our order book. We will call ' + phone + ' shortly — no need to message anywhere. Save your receipt below.';
+  $('cartMain').style.display = 'none';
+  $('cartEmpty').style.display = 'none';
+  $('orderDone').style.display = 'block';
+  $('orderDone').scrollIntoView({ behavior:'smooth', block:'center' });
+});
+
+/* ==== Receipt image — black & gold Vaijan style (same as main shop) ==== */
+function wrapC(x, text, maxW){
+  const words = String(text).split(' '); const lines = []; let line = '';
+  for(const w of words){ const t = line ? line + ' ' + w : w; if(x.measureText(t).width > maxW && line){ lines.push(line); line = w; } else line = t; }
+  if(line) lines.push(line); return lines.length ? lines : [''];
+}
+function drawReceipt(o){
+  const W = 880, M = 54; const c = document.createElement('canvas');
+  const x = c.getContext('2d');
+  x.font = "500 25px Manrope, sans-serif";
+  const addrLines = wrapC(x, o.addr, W - 2 * M - 130);
+  const prodLines = wrapC(x, o.product, W - 2 * M - 130);
+  const H = 806 + addrLines.length * 34 + (prodLines.length - 1) * 34 + (o.note ? 40 : 0);
+  c.width = W; c.height = H;
+  x.fillStyle = '#0a0a0b'; x.fillRect(0, 0, W, H);
+  x.strokeStyle = '#c9a86a'; x.lineWidth = 3; x.strokeRect(10, 10, W - 20, H - 20);
+  x.textAlign = 'center';
+  if(logoImg.complete && logoImg.naturalWidth){
+    x.save();
+    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.clip();
+    x.fillStyle = '#ffffff'; x.fillRect(W / 2 - 54, 38, 108, 108);
+    x.drawImage(logoImg, W / 2 - 54, 38, 108, 108);
+    x.restore();
+    x.strokeStyle = '#c9a86a'; x.lineWidth = 3;
+    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.stroke();
+  }
+  x.fillStyle = '#c9a86a'; x.font = "700 54px Cinzel, serif";
+  x.fillText('V A I J A N', W / 2, 200);
+  x.fillStyle = '#b7b0a0'; x.font = "600 17px Manrope, sans-serif";
+  x.fillText('T H E   N A M E  •  T H E   L O O K  •  T H E   L E G A C Y', W / 2, 234);
+  x.fillStyle = '#f4efe6'; x.font = "800 27px Manrope, sans-serif";
+  x.fillText('ORDER RECEIPT', W / 2, 278);
+  x.fillStyle = '#c9a86a'; x.fillRect(M, 298, W - 2 * M, 2);
+  x.textAlign = 'left';
+  let y = 346;
+  const row = (k, v, bold) => {
+    x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText(k, M, y);
+    x.fillStyle = '#f4efe6'; x.font = (bold ? "800" : "600") + " 24px Manrope, sans-serif"; x.fillText(v, M + 170, y);
+    y += 40;
+  };
+  row('Order ID', o.id, true);
+  row('Date', o.time);
+  row('Name', o.name);
+  row('Mobile', o.phone);
+  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Address', M, y);
+  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
+  addrLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
+  y += 8;
+  row('Area', o.area);
+  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Product', M, y);
+  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
+  prodLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
+  y += 8;
+  row('Size / Qty', o.size + '  ×  ' + o.qty);
+  if(o.note){ row('Note', o.note.length > 30 ? o.note.slice(0, 30) + '…' : o.note); }
+  y += 4;
+  x.fillStyle = '#c9a86a'; x.fillRect(M, y, W - 2 * M, 2); y += 44;
+  const trow = (k, v) => {
+    x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText(k, M, y);
+    x.fillStyle = '#f4efe6'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText(v, W - M, y); x.textAlign = 'left'; y += 38;
+  };
+  trow('Product total', fmt(o.productTotal));
+  trow('Delivery', typeof o.delivery === 'string' ? o.delivery : fmt(o.delivery));
+  x.fillStyle = '#c9a86a'; x.font = "800 29px Manrope, sans-serif";
+  x.fillText('TOTAL (COD)', M, y);
+  x.textAlign = 'right'; x.fillText(typeof o.grandTotal === 'number' ? fmt(o.grandTotal) : String(o.grandTotal), W - M, y); x.textAlign = 'left';
+  y += 54;
+  x.textAlign = 'center';
+  x.fillStyle = '#b7b0a0'; x.font = "600 19px Manrope, sans-serif";
+  x.fillText('Please check the product in front of the delivery rider.', W / 2, y); y += 30;
+  x.fillStyle = '#e6cd8f';
+  x.fillText('Thank you for shopping with VAIJAN — WhatsApp 01569-177407', W / 2, y);
+  x.textAlign = 'left';
+  return c.toDataURL('image/png');
+}
+</script>
+</body>
+</html>

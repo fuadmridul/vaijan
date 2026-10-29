@@ -371,7 +371,7 @@
         <div id="cartRows"></div>
         <div style="display:flex;justify-content:space-between;border-top:1px solid #2a2a2e;padding-top:10px;margin-top:4px"><span>Cart product total</span><b id="cartTotal">৳0</b></div>
         <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn btn-gold" id="cartCheckout" type="button" style="cursor:pointer;font-family:inherit">Checkout — Order All Together →</button>
+          <button class="btn btn-gold" id="cartCheckout" type="button" style="cursor:pointer;font-family:inherit">🛒 View Cart &amp; Checkout →</button>
           <button class="btn btn-ghost" id="cartClear" type="button" style="cursor:pointer;font-family:inherit">Clear Cart</button>
         </div>
         <div id="cartModeNote" style="display:none;margin-top:14px;font-size:14px;color:var(--gold2)">✔ Cart checkout is ON — the form below will order your cart items together. <a href="#" id="exitCartMode" style="color:var(--gold2);text-decoration:underline">Order a single product instead</a></div>
@@ -561,8 +561,8 @@ document.querySelectorAll('[data-add]').forEach(el => {
     const t = $('cartToast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1400);
   });
 });
-$('cartFab').addEventListener('click', () => { $('cartBox').scrollIntoView({ behavior:'smooth', block:'center' }); });
-$('cartCheckout').addEventListener('click', () => { cartMode = true; setFormMode(); upd(); $('orderform').scrollIntoView({ behavior:'smooth' }); });
+$('cartFab').addEventListener('click', () => { window.open('cart.html', '_blank'); });
+$('cartCheckout').addEventListener('click', () => { window.open('cart.html', '_blank'); });
 $('exitCartMode').addEventListener('click', e => { e.preventDefault(); cartMode = false; setFormMode(); upd(); });
 $('cartClear').addEventListener('click', () => { cart = []; saveCart(); renderCart(); upd(); });
 renderCart();
@@ -627,16 +627,17 @@ $('fSubmit').addEventListener('click', () => {
     grandTotal: c.grand === null ? (c.ptotal + ' + courier bill') : c.grand,
     note
   };
+  /* receipt image (save to gallery) — drawn first so a copy can also go to the database */
+  const url = drawReceipt(o);
   /* save a copy in the customer's own browser */
   try { const all = JSON.parse(localStorage.getItem('vaijan_orders') || '[]'); all.push(o); localStorage.setItem('vaijan_orders', JSON.stringify(all)); } catch(e){}
-  /* send to the Google Sheet database */
+  /* send to the Google Sheet database, with a copy of the receipt */
   if(ORDER_LOG_URL){
-    fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(o) }).catch(()=>{});
+    const payload = Object.assign({}, o, { receipt: url });
+    fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) }).catch(()=>{});
   }
   /* a completed cart order empties the cart */
   if(cartMode){ cart = []; saveCart(); cartMode = false; renderCart(); setFormMode(); }
-  /* receipt image (save to gallery) */
-  const url = drawReceipt(o);
   $('receiptImg').src = url;
   const dl = $('receiptDl'); dl.href = url; dl.setAttribute('download', 'Vaijan_Receipt_' + oid + '.png');
   $('doneText').textContent = 'Order ID: ' + oid + ' — Thank you, ' + name.split(' ')[0] + '! Your order is confirmed in our order book. We will call ' + phone + ' shortly — no need to message anywhere. Save your receipt below.';
