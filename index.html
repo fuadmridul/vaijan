@@ -4,384 +4,272 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VAIJAN | ভাইজান — Premium Clothing, Khulna</title>
-<meta name="description" content="VAIJAN — premium clothing brand from Khulna, Bangladesh. Winter Collection: premium 350+ GSM fleece hoodies. Cash on Delivery all over Bangladesh.">
+<meta name="description" content="VAIJAN — premium clothing brand from Khulna, Bangladesh. Winter Collection: premium 350+ GSM fleece hoodies & acid wash tees. Cash on Delivery all over Bangladesh.">
+<meta property="og:title" content="VAIJAN | ভাইজান — Premium Clothing, Khulna">
+<meta property="og:description" content="Premium hoodies ৳750 • Acid wash tees ৳450 • Bundle ৳1,300 with FREE delivery. Cash on Delivery, all Bangladesh.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/winter-poster.png">
 <link rel="icon" type="image/jpeg" href="images/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#0a0a0b; --panel:#141416; --panel2:#1a1a1d; --gold:#c9a86a; --gold2:#e6cd8f;
-    --text:#f4efe6; --muted:#b7b0a0; --line:#2a2a2e; --red:#8e1f2f;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;line-height:1.55}
-  a{color:inherit;text-decoration:none}
-  img{display:block;max-width:100%}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
-  /* Header */
-  header{position:sticky;top:0;z-index:50;background:rgba(10,10,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
-  .logo{font-family:'Cinzel',serif;font-size:30px;font-weight:700;letter-spacing:10px;color:var(--gold)}
-  .logo small{display:block;font-family:'Manrope',sans-serif;font-size:10px;letter-spacing:4px;color:var(--muted);font-weight:600;margin-top:2px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .brand img{width:46px;height:46px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;background:#fff}
-  .brand span{display:inline-block}
-  .links{display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--muted)}
-  .links a:hover{color:var(--gold2)}
-  .btn{display:inline-block;padding:11px 22px;border-radius:999px;font-weight:800;font-size:14px;border:1px solid var(--gold);transition:.2s}
-  .btn-gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#171204}
-  .btn-gold:hover{filter:brightness(1.08)}
-  .btn-ghost{color:var(--gold2);background:transparent}
-  .btn-ghost:hover{background:rgba(201,168,106,.12)}
-  .btn-wa{background:#1faa55;color:#fff;border-color:#1faa55}
-  .btn-wa:hover{filter:brightness(1.08)}
-  /* Hero */
-  .hero{border-bottom:1px solid var(--line);background:radial-gradient(900px 420px at 15% 0%,rgba(201,168,106,.16),transparent 60%),radial-gradient(700px 380px at 90% 20%,rgba(201,168,106,.08),transparent 60%)}
-  .hero-in{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center;padding:52px 0}
-  .kicker{letter-spacing:5px;font-size:12px;color:var(--gold2);font-weight:800;text-transform:uppercase}
-  h1{font-size:52px;line-height:1.05;font-weight:800;margin:14px 0 6px}
-  h1 .gold{color:var(--gold)}
-  .tagline{letter-spacing:4px;color:var(--muted);font-size:13px;font-weight:700;margin-bottom:18px}
-  .hero p.lead{color:var(--muted);max-width:52ch}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
-  .pill{display:inline-block;background:var(--gold);color:#171204;font-weight:800;border-radius:999px;padding:6px 16px;font-size:14px;margin-top:18px}
-  .hero img{border-radius:18px;border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.55)}
-  /* Sections */
-  section{padding:56px 0}
-  h2{font-size:30px;font-weight:800;margin-bottom:8px}
-  h2 .gold{color:var(--gold)}
-  .sub{color:var(--muted);margin-bottom:26px}
-  /* Categories */
-  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-  .chip{padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:var(--panel);color:var(--muted);font-weight:700;font-size:14px;cursor:pointer}
-  .chip.active{border-color:var(--gold);color:#171204;background:linear-gradient(180deg,var(--gold2),var(--gold))}
-  .chip.soon{opacity:.55;cursor:default}
-  /* Products */
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
-  .card .ph{background:#fff}
-  .card .ph img{width:100%;height:340px;object-fit:cover;object-position:top}
-  .card .bd{padding:20px;display:flex;flex-direction:column;gap:10px;flex:1}
-  .badge{align-self:flex-start;font-size:11px;font-weight:800;letter-spacing:2px;color:var(--gold2);border:1px solid var(--gold);border-radius:999px;padding:4px 10px;text-transform:uppercase}
-  .badge.red{color:#ffb3ba;border-color:var(--red)}
-  .card h3{font-size:20px;font-weight:800}
-  .card p{color:var(--muted);font-size:14px;flex:1}
-  .sizes{font-size:13px;color:var(--muted)}
-  .sizes b{color:var(--text)}
-  .price{display:flex;align-items:baseline;gap:10px}
-  .price .now{font-size:26px;font-weight:800;color:var(--gold2)}
-  .price .was{color:var(--muted);text-decoration:line-through;font-size:16px}
-  .price .save{font-size:12px;font-weight:800;color:#7ee2a0}
-  .card .row{display:flex;gap:10px;flex-wrap:wrap}
-  .card .row .btn{flex:1;text-align:center;padding:11px 8px}
-  /* Info strip */
-  .strip{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding-top:30px;padding-bottom:30px}
-  .feat{text-align:center;padding:8px}
-  .feat .ic{font-size:26px;margin-bottom:8px}
-  .feat b{display:block;font-size:15px}
-  .feat span{color:var(--muted);font-size:13px}
-  /* Steps */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-  .step{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
-  .step .n{font-family:'Cinzel',serif;font-size:26px;color:var(--gold);font-weight:700}
-  .step b{display:block;margin:8px 0 6px;font-size:16px}
-  .step p{color:var(--muted);font-size:14px}
-  .note{margin-top:22px;border:1px dashed var(--gold);border-radius:14px;padding:16px 18px;color:var(--muted);font-size:14px;background:rgba(201,168,106,.06)}
-  .note b{color:var(--gold2)}
-  /* Footer */
-  footer{border-top:1px solid var(--line);padding:38px 0 30px;color:var(--muted);font-size:14px}
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  footer .logo{font-size:24px}
-  footer a{color:var(--gold2)}
-  .copy{margin-top:22px;font-size:12px;color:#77705f}
-  /* Order form */
-  .formbox{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:26px}
-  .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .fgrid .full{grid-column:1/-1}
-  label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
-  input,select,textarea{width:100%;background:var(--panel2);border:1px solid var(--line);border-radius:10px;color:var(--text);padding:12px 14px;font-family:inherit;font-size:15px}
-  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-  .totbox{margin-top:18px;border:1px dashed var(--gold);border-radius:14px;padding:16px 18px;background:rgba(201,168,106,.06)}
-  .totbox .trow{display:flex;justify-content:space-between;font-size:15px;color:var(--muted);padding:3px 0}
-  .totbox .trow.grand{font-size:19px;color:var(--text);font-weight:800;border-top:1px solid var(--line);margin-top:8px;padding-top:10px}
-  .totbox .trow.grand span:last-child{color:var(--gold2)}
-  .err{display:none;color:#ff9aa4;font-size:14px;font-weight:700;margin-top:12px}
-  .formlink{display:inline-block;margin-top:4px;font-size:13px;font-weight:700;color:var(--gold2)}
-  .formlink:hover{text-decoration:underline}
-  .done{display:none;text-align:center;padding:10px 0}
-  .done .tick{font-size:44px}
-  .done h3{font-size:22px;margin:8px 0}
-  .done p{color:var(--muted);font-size:14px}
-  .done img{margin:18px auto;border-radius:14px;border:1px solid var(--line);max-width:440px;width:100%}
-  @media (max-width:900px){
-    .fgrid{grid-template-columns:1fr}
-    .hero-in{grid-template-columns:1fr}
-    .grid{grid-template-columns:1fr}
-    .strip .wrap{grid-template-columns:repeat(2,1fr)}
-    .steps{grid-template-columns:1fr}
-    h1{font-size:38px}
-    .links{display:none}
-  }
-  /* ==== cart ==== */
-  #cartFab{position:fixed;right:18px;bottom:18px;z-index:60;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#171204;border:none;border-radius:999px;padding:13px 22px;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,.55);font-family:inherit;display:none}
-  #cartToast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);z-index:61;background:#1d2b1d;color:#b9e6b9;border:1px solid #3f7a3f;padding:10px 20px;border-radius:999px;font-size:14px;font-weight:700;opacity:0;pointer-events:none;transition:.25s}
-  #cartToast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-  .crow{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:10px 0;border-top:1px solid #26262a}
-  .crow .cinfo{flex:1 1 200px}.crow .cinfo b{display:block;font-size:14.5px}.crow .cinfo span{font-size:12.5px;color:#b7b0a0}
-  .crow select{background:var(--panel2);color:var(--text);border:1px solid #333;border-radius:8px;padding:5px 7px;font-family:inherit}
-  .crow .cqty{display:flex;align-items:center;gap:8px}
-  .crow .cqty button,.crow .crm{background:var(--panel2);color:var(--gold2);border:1px solid #3a3a3f;border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:15px;line-height:1}
-  .crow .cline{font-weight:800;min-width:64px;text-align:right}
-</style>
+<link rel="stylesheet" href="assets/css/tailwind.css">
+<link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<body>
+<body class="bg-ink text-cream font-sans antialiased">
 
-<header>
-  <div class="wrap nav">
-    <a class="logo brand" href="#top"><img src="images/logo.jpg" alt="Vaijan logo"><span>VAIJAN<small>THE NAME • THE LOOK • THE LEGACY</small></span></a>
-    <nav class="links">
-      <a href="#categories">Categories</a>
-      <a href="#shop">Shop</a>
-      <a href="#order">How to Order</a>
-      <a href="#contact">Contact</a>
+<!-- ================= Header ================= -->
+<header class="sticky top-0 z-50 border-b border-line bg-ink/90 backdrop-blur-md">
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5">
+    <a href="#top" class="flex items-center gap-3">
+      <img src="images/logo.jpg" alt="Vaijan logo" class="h-11 w-11 rounded-full border-2 border-gold bg-white object-cover">
+      <span class="font-display text-[26px] font-bold leading-none tracking-[0.35em] text-gold">VAIJAN
+        <small class="mt-1 block font-sans text-[9px] font-semibold tracking-[0.3em] text-muted">THE NAME • THE LOOK • THE LEGACY</small>
+      </span>
+    </a>
+    <nav class="hidden items-center gap-7 text-sm font-semibold text-muted lg:flex">
+      <a href="#categories" class="transition hover:text-goldlt">Categories</a>
+      <a href="#shop" class="transition hover:text-goldlt">Shop</a>
+      <a href="#order" class="transition hover:text-goldlt">How to Order</a>
+      <a href="#contact" class="transition hover:text-goldlt">Contact</a>
     </nav>
-    <a class="btn btn-gold" href="#orderform">Order Now</a>
+    <a href="#orderform" class="btn-gold-x">Order Now</a>
   </div>
 </header>
 
-<div class="hero" id="top">
-  <div class="wrap hero-in">
+<!-- ================= Hero ================= -->
+<section id="top" class="overflow-hidden">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-12 lg:grid-cols-2 lg:pt-16">
     <div>
-      <div class="kicker">Winter Collection 2026</div>
-      <h1>Premium <span class="gold">Hoodies</span><br>Built to Stand Out</h1>
-      <div class="tagline">। VAIJAN । ভাইজান । — KHULNA, BANGLADESH</div>
-      <p class="lead">350+ GSM premium fleece, bold front &amp; back prints, and a fit made for Bangladeshi winter. Order today — pay cash when your parcel arrives at your door.</p>
-      <span class="pill">Winter Offer — Hoodies at ৳750 only</span>
-      <div class="hero-cta">
-        <a class="btn btn-gold" href="#shop">Shop the Collection</a>
-        <a class="btn btn-ghost" href="#orderform">Order Online</a>
+      <div data-anim="hero" class="text-xs font-extrabold uppercase tracking-[0.35em] text-goldlt">Winter Collection 2026</div>
+      <h1 data-anim="hero" class="mt-4 text-4xl font-extrabold leading-[1.08] sm:text-5xl xl:text-6xl">Premium <span class="text-gold">Hoodies</span><br>Built to Stand Out</h1>
+      <div data-anim="hero" class="mt-4 font-semibold tracking-wide text-muted">। VAIJAN । ভাইজান । — KHULNA, BANGLADESH</div>
+      <p data-anim="hero" class="mt-4 max-w-lg text-[15.5px] leading-relaxed text-muted">350+ GSM premium fleece, bold front &amp; back prints, and a fit made for Bangladeshi winter. Order today — pay cash when your parcel arrives at your door.</p>
+      <span data-anim="hero" class="mt-6 inline-block rounded-full bg-gold px-4 py-1.5 text-sm font-extrabold text-[#171204]">Winter Offer — Hoodies at ৳750 only</span>
+      <div data-anim="hero" class="mt-7 flex flex-wrap gap-3">
+        <a href="#shop" class="btn-gold-x">Shop the Collection</a>
+        <a href="#orderform" class="btn-ghost-x">Order Online</a>
       </div>
     </div>
-    <div>
-      <img src="images/winter-poster.png" alt="Vaijan Winter Collection — Premium Hoodie ৳750">
-    </div>
-  </div>
-</div>
-
-<section id="categories">
-  <div class="wrap">
-    <h2>Product <span class="gold">Categories</span></h2>
-    <p class="sub">Browse by category — new products are added regularly. Follow our Facebook Page so you never miss a drop.</p>
-    <div class="chips">
-      <button class="chip active" data-filter="all">All Products</button>
-      <button class="chip" data-filter="hoodie">Winter Hoodies</button>
-      <button class="chip" data-filter="bundle">Bundle Offer</button>
-      <button class="chip" data-filter="acid">Acid Wash T-Shirts</button>
-    </div>
-
-    <div class="grid" id="shop">
-      <!-- Design A -->
-      <article class="card" data-cat="hoodie">
-        <div class="ph"><img src="images/hoodie-a.jpg" alt="Design A — Kalima Calligraphy Hoodie, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Winter Hoodie</span>
-          <h3>Design A — Kalima Calligraphy Hoodie</h3>
-          <p>Black premium hoodie with white Arabic Kalima calligraphy and sword detail on the front, and a large ornate framed print on the back. 350+ GSM fleece — soft, warm and heavy-duty.</p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
-          <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="A">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="A" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Design B -->
-      <article class="card" data-cat="hoodie">
-        <div class="ph"><img src="images/hoodie-b.jpg" alt="Design B — Only Trust Allah Hoodie, front and back view"></div>
-        <div class="bd">
-          <span class="badge red">Winter Hoodie</span>
-          <h3>Design B — Only Trust Allah Hoodie</h3>
-          <p>Black premium hoodie with “ONLY TRUST ALLAH” on the front and a bold red back panel with white Arabic calligraphy. 350+ GSM fleece — the design that turns heads.</p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black</b></div>
-          <div class="price"><span class="now">৳750</span><span class="was">৳850</span><span class="save">Winter Offer</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="B">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="B" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Bundle -->
-      <article class="card" data-cat="bundle">
-        <div class="ph"><img src="images/winter-poster.png" alt="Vaijan Winter Bundle — Design A + Design B"></div>
-        <div class="bd">
-          <span class="badge">Bundle Offer</span>
-          <h3>Winter Bundle — Design A + Design B</h3>
-          <p>Both signature hoodies together. One for you, one for your vai — or keep both looks in your own rotation. Same premium 350+ GSM fleece, both sizes of your choice. Plus <b style="color:var(--gold2)">FREE delivery anywhere in Bangladesh</b>.</p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> (each) &nbsp;•&nbsp; Colour: <b>Black</b></div>
-          <div class="price"><span class="now">৳1,300</span><span class="was">৳1,700</span><span class="save">Save ৳400 + FREE Delivery</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="BUNDLE">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="BUNDLE" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW1 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-1.jpg" alt="One Piece acid wash drop shoulder t-shirt, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>One Piece — Jolly Roger Acid Wash Tee</h3>
-          <p>Black acid-wash drop-shoulder tee with a small Straw Hat skull print on the front and a big red back graphic. 100% cotton, soft &amp; comfortable. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW1">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW1" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW2 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-2.jpg" alt="LIVE YOUR LIFE forest barcode acid wash t-shirt, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>LIVE YOUR LIFE — Forest Acid Wash Tee</h3>
-          <p>Charcoal acid-wash drop-shoulder tee with the minimal forest-barcode “LIVE YOUR LIFE” front graphic and a clean plain back. 100% cotton streetwear essential. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Charcoal Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW2">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW2" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW3 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-3.jpg" alt="Kakashi acid wash drop shoulder t-shirt, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>Kakashi — Acid Wash Tee</h3>
-          <p>Black acid-wash drop-shoulder tee with a Kakashi eye panel on the front and a bold red-moon back graphic. Premium DTF print, 100% cotton, colour guaranteed. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW3">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW3" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW4 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-4.jpg" alt="Spider-Man acid wash drop shoulder t-shirt, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>Spider-Man — Acid Wash Tee</h3>
-          <p>Black acid-wash drop-shoulder tee with a red spider emblem on the front and a big newspaper-style back graphic. 100% cotton, crafted in texture. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Black Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW4">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW4" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW5 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-5.jpg" alt="Zulfiqar sword grey acid wash t-shirt worn view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>Zulfiqar Sword — Acid Wash Tee</h3>
-          <p>Grey acid-wash drop-shoulder tee with a golden Zulfiqar sword and Arabic calligraphy across the chest. 100% cotton with a rich washed texture. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Grey Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW5">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW5" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Acid Wash AW7 -->
-      <article class="card" data-cat="acid">
-        <div class="ph"><img src="images/acid-7.jpg" alt="ALPHA INSTINCT tiger acid wash drop shoulder t-shirt, front and back view"></div>
-        <div class="bd">
-          <span class="badge">Acid Wash Tee</span>
-          <h3>ALPHA INSTINCT — Tiger Acid Wash Tee</h3>
-          <p>Charcoal acid-wash drop-shoulder tee — clean plain front, and a big orange tiger “ALPHA INSTINCT” graphic on the back. Not made to blend in. 100% cotton, high-quality print. <b style="color:var(--gold2)">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
-          <div class="sizes">Sizes: <b>M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b>Charcoal Acid Wash</b></div>
-          <div class="price"><span class="now">৳450</span><span class="was">৳600</span><span class="save">Save ৳150</span></div>
-          <div class="row">
-            <a class="btn btn-gold" href="#orderform" data-pick="AW7">🛒 Order Now</a>
-            <button type="button" class="btn btn-ghost" data-add="AW7" style="cursor:pointer;font-family:inherit">🛒 Add to Cart</button>
-            <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
-          </div>
-        </div>
-      </article>
+    <div data-anim="poster">
+      <img src="images/winter-poster.png" alt="Vaijan Winter Collection — Premium Hoodie ৳750" class="hero-poster w-full" fetchpriority="high">
     </div>
   </div>
 </section>
 
-<div class="strip">
-  <div class="wrap">
-    <div class="feat"><div class="ic">🧵</div><b>350+ GSM Fleece</b><span>Thick, warm, premium fabric</span></div>
-    <div class="feat"><div class="ic">💵</div><b>Cash on Delivery</b><span>Pay when you receive</span></div>
-    <div class="feat"><div class="ic">🚚</div><b>All Bangladesh Delivery</b><span>SteadFast courier from Khulna</span></div>
-    <div class="feat"><div class="ic">🔍</div><b>Check at Delivery</b><span>Inspect in front of the rider</span></div>
-  </div>
-</div>
-
-<section id="order">
-  <div class="wrap">
-    <h2>How to <span class="gold">Order</span></h2>
-    <p class="sub">Three simple steps — no advance payment needed.</p>
-    <div class="steps">
-      <div class="step"><div class="n">01</div><b>Choose Design &amp; Size</b><p>Pick a hoodie (Design A / B), the Bundle, or any Acid Wash tee — and your size (M | L | XL | XXL). Please check your size carefully before ordering.</p></div>
-      <div class="step"><div class="n">02</div><b>Fill In &amp; Confirm</b><p>Order one item with the form below — or press <b>Add to Cart</b> on several products and checkout together. Give your name, mobile number and full address, then press Confirm Order. No WhatsApp or Messenger needed.</p></div>
-      <div class="step"><div class="n">03</div><b>Pay on Delivery</b><p>We will call you to confirm, then ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single item. <b>Bundle orders and any 2 acid wash tees: delivery is FREE.</b></p></div>
+<!-- ================= Shop ================= -->
+<section id="categories" class="py-14">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 data-anim="heading" class="text-3xl font-extrabold sm:text-4xl">Product <span class="text-gold">Categories</span></h2>
+    <p data-anim="heading" class="mt-3 max-w-2xl text-muted">Browse by category — new products are added regularly. Follow our Facebook Page so you never miss a drop.</p>
+    <div class="mt-7 flex flex-wrap gap-2.5">
+      <button class="chip chip-x active" data-filter="all" type="button">All Products</button>
+      <button class="chip chip-x" data-filter="hoodie" type="button">Winter Hoodies</button>
+      <button class="chip chip-x" data-filter="bundle" type="button">Bundle Offer</button>
+      <button class="chip chip-x" data-filter="acid" type="button">Acid Wash T-Shirts</button>
     </div>
-    <div class="note"><b>Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your size carefully before ordering.</div>
+
+    <div class="mt-9 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" id="shop">
+
+      <article class="card card-x" data-cat="hoodie">
+        <div class="overflow-hidden"><img class="card-img" src="images/hoodie-a.jpg" alt="Design A — Kalima Calligraphy Hoodie, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Winter Hoodie</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Design A — Kalima Calligraphy Hoodie</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Black premium hoodie with white Arabic Kalima calligraphy and sword detail on the front, and a large ornate framed print on the back. 350+ GSM fleece — soft, warm and heavy-duty.</p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Black</b></div>
+          <div class="mt-3"><span class="price-now">৳750</span><span class="price-was">৳850</span><span class="price-save">Winter Offer</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="A">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="A">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="hoodie">
+        <div class="overflow-hidden"><img class="card-img" src="images/hoodie-b.jpg" alt="Design B — Only Trust Allah Hoodie, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x red">Winter Hoodie</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Design B — Only Trust Allah Hoodie</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Black premium hoodie with “ONLY TRUST ALLAH” on the front and a bold red back panel with white Arabic calligraphy. 350+ GSM fleece — the design that turns heads.</p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Black</b></div>
+          <div class="mt-3"><span class="price-now">৳750</span><span class="price-was">৳850</span><span class="price-save">Winter Offer</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="B">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="B">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="bundle">
+        <div class="overflow-hidden"><img class="card-img" src="images/winter-poster.png" alt="Vaijan Winter Bundle — Design A + Design B" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Bundle Offer</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Winter Bundle — Design A + Design B</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Both signature hoodies together. One for you, one for your vai — or keep both looks in your own rotation. Same premium 350+ GSM fleece, both sizes of your choice. Plus <b class="text-goldlt">FREE delivery anywhere in Bangladesh</b>.</p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> (each) &nbsp;•&nbsp; Colour: <b class="text-cream">Black</b></div>
+          <div class="mt-3"><span class="price-now">৳1,300</span><span class="price-was">৳1,700</span><span class="price-save">Save ৳400 + FREE Delivery</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="BUNDLE">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="BUNDLE">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-1.jpg" alt="One Piece acid wash drop shoulder t-shirt, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">One Piece — Jolly Roger Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Black acid-wash drop-shoulder tee with a small Straw Hat skull print on the front and a big red back graphic. 100% cotton, soft &amp; comfortable. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Black Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW1">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW1">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-2.jpg" alt="LIVE YOUR LIFE forest barcode acid wash t-shirt, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">LIVE YOUR LIFE — Forest Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Charcoal acid-wash drop-shoulder tee with the minimal forest-barcode “LIVE YOUR LIFE” front graphic and a clean plain back. 100% cotton streetwear essential. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Charcoal Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW2">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW2">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-3.jpg" alt="Kakashi acid wash drop shoulder t-shirt, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Kakashi — Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Black acid-wash drop-shoulder tee with a Kakashi eye panel on the front and a bold red-moon back graphic. Premium DTF print, 100% cotton, colour guaranteed. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Black Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW3">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW3">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-4.jpg" alt="Spider-Man acid wash drop shoulder t-shirt, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Spider-Man — Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Black acid-wash drop-shoulder tee with a red spider emblem on the front and a big newspaper-style back graphic. 100% cotton, crafted in texture. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Black Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW4">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW4">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-5.jpg" alt="Zulfiqar sword grey acid wash t-shirt worn view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">Zulfiqar Sword — Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Grey acid-wash drop-shoulder tee with a golden Zulfiqar sword and Arabic calligraphy across the chest. 100% cotton with a rich washed texture. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Grey Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW5">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW5">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-x" data-cat="acid">
+        <div class="overflow-hidden"><img class="card-img" src="images/acid-7.jpg" alt="ALPHA INSTINCT tiger acid wash drop shoulder t-shirt, front and back view" loading="lazy"></div>
+        <div class="flex flex-1 flex-col p-5">
+          <div><span class="badge-x">Acid Wash Tee</span></div>
+          <h3 class="mt-3 text-lg font-extrabold">ALPHA INSTINCT — Tiger Acid Wash Tee</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-muted">Charcoal acid-wash drop-shoulder tee — clean plain front, and a big orange tiger “ALPHA INSTINCT” graphic on the back. Not made to blend in. 100% cotton, high-quality print. <b class="text-goldlt">Combo: buy any 2 acid wash tees → FREE delivery.</b></p>
+          <div class="mt-3 text-[13px] text-muted">Sizes: <b class="text-cream">M | L | XL | XXL</b> &nbsp;•&nbsp; Colour: <b class="text-cream">Charcoal Acid Wash</b></div>
+          <div class="mt-3"><span class="price-now">৳450</span><span class="price-was">৳600</span><span class="price-save">Save ৳150</span></div>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a class="btn-gold-x" href="#orderform" data-pick="AW7">🛒 Order Now</a>
+            <button type="button" class="btn-ghost-x" data-add="AW7">🛒 Add to Cart</button>
+            <a class="btn-ghost-x" target="_blank" rel="noopener" href="https://www.facebook.com/vaijan662">Facebook Page</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
   </div>
 </section>
 
-<section id="orderform">
-  <div class="wrap">
-    <h2>Place Your <span class="gold">Order</span></h2>
-    <p class="sub">Just select your product, fill in your details, and confirm — <b style="color:var(--gold2)">no WhatsApp or Messenger needed</b>. Your order goes straight into our order book, and you get a receipt image you can save. Pay cash on delivery.</p>
-    <div class="formbox">
-      <div id="cartBox" style="display:none;margin-bottom:24px">
-        <h3 style="color:var(--gold2);margin:0 0 6px;font-size:20px">🛒 Your Cart</h3>
-        <p style="font-size:13.5px;color:#b7b0a0;margin:0 0 10px">Change sizes and quantities here, then press <b style="color:var(--gold2)">Checkout</b> to order everything together — one delivery, one cash payment on delivery.</p>
-        <div id="cartRows"></div>
-        <div id="cartDiscRow" style="display:none;justify-content:space-between;padding-top:8px;color:var(--gold2)"><span>🎁 Bundle combo discount (A + B)</span><b id="cartDisc">−৳0</b></div>
-        <div style="display:flex;justify-content:space-between;border-top:1px solid #2a2a2e;padding-top:10px;margin-top:4px"><span>Cart product total</span><b id="cartTotal">৳0</b></div>
-        <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn btn-gold" id="cartCheckout" type="button" style="cursor:pointer;font-family:inherit">🛒 View Cart &amp; Checkout →</button>
-          <button class="btn btn-ghost" id="cartClear" type="button" style="cursor:pointer;font-family:inherit">Clear Cart</button>
+<!-- ================= Feature strip ================= -->
+<section class="border-y border-line bg-panel">
+  <div class="mx-auto grid max-w-6xl grid-cols-2 gap-6 px-5 py-8 lg:grid-cols-4">
+    <div data-anim="feat" class="text-center"><div class="text-3xl">🧵</div><b class="mt-2 block">350+ GSM Fleece</b><span class="text-sm text-muted">Thick, warm, premium fabric</span></div>
+    <div data-anim="feat" class="text-center"><div class="text-3xl">💵</div><b class="mt-2 block">Cash on Delivery</b><span class="text-sm text-muted">Pay when you receive</span></div>
+    <div data-anim="feat" class="text-center"><div class="text-3xl">🚚</div><b class="mt-2 block">All Bangladesh Delivery</b><span class="text-sm text-muted">SteadFast courier from Khulna</span></div>
+    <div data-anim="feat" class="text-center"><div class="text-3xl">🔍</div><b class="mt-2 block">Check at Delivery</b><span class="text-sm text-muted">Inspect in front of the rider</span></div>
+  </div>
+</section>
+
+<!-- ================= How to order ================= -->
+<section id="order" class="py-14">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 data-anim="heading" class="text-3xl font-extrabold sm:text-4xl">How to <span class="text-gold">Order</span></h2>
+    <p class="mt-3 text-muted">Three simple steps — no advance payment needed.</p>
+    <div class="mt-9 grid gap-6 md:grid-cols-3">
+      <div class="rounded-2xl border border-line bg-panel p-6"><div class="font-display text-4xl font-bold text-gold">01</div><b class="mt-3 block text-lg">Choose Design &amp; Size</b><p class="mt-2 text-sm leading-relaxed text-muted">Pick a hoodie (Design A / B), the Bundle, or any Acid Wash tee — and your size (M | L | XL | XXL). Please check your size carefully before ordering.</p></div>
+      <div class="rounded-2xl border border-line bg-panel p-6"><div class="font-display text-4xl font-bold text-gold">02</div><b class="mt-3 block text-lg">Fill In &amp; Confirm</b><p class="mt-2 text-sm leading-relaxed text-muted">Order one item with the form below — or press <b>Add to Cart</b> on several products and checkout together on the cart page. Give your name, mobile number and full address, then press Confirm Order. No WhatsApp or Messenger needed.</p></div>
+      <div class="rounded-2xl border border-line bg-panel p-6"><div class="font-display text-4xl font-bold text-gold">03</div><b class="mt-3 block text-lg">Pay on Delivery</b><p class="mt-2 text-sm leading-relaxed text-muted">We will call you to confirm, then ship via SteadFast from Khulna. Check the product in front of the delivery rider, then pay cash. Delivery charge (courier bill): Khulna ৳60 • Dhaka ৳115 • other districts ৳135 for a single item. <b class="text-goldlt">Bundle orders and any 2 acid wash tees: delivery is FREE.</b></p></div>
+    </div>
+    <div class="mt-6 rounded-xl border border-line bg-panel2 p-4 text-sm text-muted"><b class="text-cream">Please note:</b> Check the product at the time of delivery in front of the delivery person. After you have checked and received it, returns or exchanges cannot be accepted — so please confirm your size carefully before ordering.</div>
+  </div>
+</section>
+
+<!-- ================= Order form ================= -->
+<section id="orderform" class="py-14">
+  <div class="mx-auto max-w-6xl px-5">
+    <h2 data-anim="heading" class="text-3xl font-extrabold sm:text-4xl">Place Your <span class="text-gold">Order</span></h2>
+    <p class="mt-3 max-w-2xl text-muted">Just select your product, fill in your details, and confirm — <b class="text-goldlt">no WhatsApp or Messenger needed</b>. Your order goes straight into our order book, and you get a receipt image you can save. Pay cash on delivery.</p>
+
+    <div class="mt-8 rounded-3xl border border-line bg-panel p-5 sm:p-8">
+      <!-- cart panel -->
+      <div id="cartBox" style="display:none" class="mb-7">
+        <h3 class="text-xl font-extrabold text-goldlt">🛒 Your Cart</h3>
+        <p class="mt-1 text-[13.5px] text-muted">Change sizes and quantities here, then open the cart page to checkout — one delivery, one cash payment on delivery.</p>
+        <div id="cartRows" class="mt-2"></div>
+        <div id="cartDiscRow" style="display:none" class="justify-between pt-2 text-goldlt"><span>🎁 Bundle combo discount (A + B)</span><b id="cartDisc">−৳0</b></div>
+        <div class="mt-1 flex justify-between border-t border-line pt-2.5"><span>Cart product total</span><b id="cartTotal">৳0</b></div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button class="btn-gold-x" id="cartCheckout" type="button">🛒 View Cart &amp; Checkout →</button>
+          <button class="btn-ghost-x" id="cartClear" type="button">Clear Cart</button>
         </div>
-        <div id="cartModeNote" style="display:none;margin-top:14px;font-size:14px;color:var(--gold2)">✔ Cart checkout is ON — the form below will order your cart items together. <a href="#" id="exitCartMode" style="color:var(--gold2);text-decoration:underline">Order a single product instead</a></div>
+        <div id="cartModeNote" style="display:none" class="mt-3.5 text-sm text-goldlt">✔ Cart checkout is ON — the form below will order your cart items together. <a href="#" id="exitCartMode" class="underline">Order a single product instead</a></div>
       </div>
+
+      <!-- single-order form -->
       <div id="formWrap">
-        <div class="fgrid">
+        <div class="grid gap-4 sm:grid-cols-2">
           <div id="cellProduct">
-            <label for="fProduct">Product</label>
-            <select id="fProduct">
+            <label class="flabel-x" for="fProduct">Product</label>
+            <select id="fProduct" class="field-x">
               <option value="A">Design A — Kalima Calligraphy Hoodie (৳750)</option>
               <option value="B">Design B — Only Trust Allah Hoodie (৳750)</option>
               <option value="BUNDLE">Winter Bundle — Design A + Design B (৳1,300 + FREE Delivery)</option>
@@ -394,346 +282,97 @@
             </select>
           </div>
           <div id="cellQty">
-            <label for="fQty">Quantity</label>
-            <select id="fQty">
+            <label class="flabel-x" for="fQty">Quantity</label>
+            <select id="fQty" class="field-x">
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option>
             </select>
           </div>
           <div id="cellSize">
-            <label for="fSize">Size</label>
-            <select id="fSize"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+            <label class="flabel-x" for="fSize">Size</label>
+            <select id="fSize" class="field-x"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
           </div>
           <div id="size2Wrap" style="display:none">
-            <label for="fSize2">Size — Design B (Bundle)</label>
-            <select id="fSize2"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
+            <label class="flabel-x" for="fSize2">Size — Design B (Bundle)</label>
+            <select id="fSize2" class="field-x"><option>M</option><option>L</option><option>XL</option><option>XXL</option></select>
           </div>
           <div>
-            <label for="fArea">Delivery Area</label>
-            <select id="fArea">
+            <label class="flabel-x" for="fArea">Delivery Area</label>
+            <select id="fArea" class="field-x">
               <option value="khulna">Inside Khulna</option>
               <option value="dhaka">Dhaka City</option>
               <option value="other">Other District</option>
             </select>
           </div>
           <div>
-            <label for="fName">Your Name *</label>
-            <input id="fName" type="text" placeholder="e.g. Md. Rahim Uddin" autocomplete="name">
+            <label class="flabel-x" for="fName">Your Name *</label>
+            <input id="fName" class="field-x" type="text" placeholder="e.g. Md. Rahim Uddin" autocomplete="name">
           </div>
           <div>
-            <label for="fPhone">Mobile Number (WhatsApp) *</label>
-            <input id="fPhone" type="tel" placeholder="01XXXXXXXXX" autocomplete="tel">
+            <label class="flabel-x" for="fPhone">Mobile Number (WhatsApp) *</label>
+            <input id="fPhone" class="field-x" type="tel" placeholder="01XXXXXXXXX" autocomplete="tel">
           </div>
-          <div class="full">
-            <label for="fAddr">Full Delivery Address *</label>
-            <textarea id="fAddr" rows="2" placeholder="House / Road / Area / Thana / District"></textarea>
+          <div class="sm:col-span-2">
+            <label class="flabel-x" for="fAddr">Full Delivery Address *</label>
+            <textarea id="fAddr" class="field-x" rows="2" placeholder="House / Road / Area / Thana / District"></textarea>
           </div>
-          <div class="full">
-            <label for="fNote">Note (optional)</label>
-            <input id="fNote" type="text" placeholder="Anything we should know?">
+          <div class="sm:col-span-2">
+            <label class="flabel-x" for="fNote">Note (optional)</label>
+            <input id="fNote" class="field-x" type="text" placeholder="Anything we should know?">
           </div>
         </div>
-        <div class="totbox">
-          <div class="trow"><span>Product total</span><span id="tProduct">৳750</span></div>
-          <div class="trow"><span>Delivery charge (SteadFast)</span><span id="tDelivery">৳60</span></div>
-          <div class="trow grand"><span>Total — Cash on Delivery</span><span id="tGrand">৳810</span></div>
+        <div class="mt-6 rounded-xl bg-panel2 p-4">
+          <div class="flex justify-between py-1"><span>Product total</span><span id="tProduct">৳750</span></div>
+          <div class="flex justify-between py-1"><span>Delivery charge (SteadFast)</span><span id="tDelivery">৳60</span></div>
+          <div class="mt-2 flex justify-between border-t border-line pt-3 text-lg font-extrabold text-goldlt"><span>Total — Cash on Delivery</span><span id="tGrand">৳810</span></div>
         </div>
-        <div class="err" id="fErr"></div>
-        <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
-          <button class="btn btn-gold" id="fSubmit" type="button" style="cursor:pointer;font-family:inherit">Confirm Order</button>
-          <a class="btn btn-ghost" href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener">Visit our Facebook Page</a>
+        <div class="err-x" id="fErr"></div>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <button class="btn-gold-x" id="fSubmit" type="button">Confirm Order</button>
+          <a class="btn-ghost-x" href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener">Visit our Facebook Page</a>
         </div>
       </div>
-      <div class="done" id="orderDone">
-        <div class="tick">✅</div>
-        <h3>Order Received!</h3>
-        <p id="doneText">Thank you! We will call to confirm your order shortly.</p>
-        <img id="receiptImg" alt="Your Vaijan order receipt">
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <a class="btn btn-gold" id="receiptDl" download="Vaijan_Receipt.png" href="#">📥 Save Receipt to Gallery</a>
+
+      <!-- success -->
+      <div class="py-4 text-center" id="orderDone" style="display:none">
+        <div class="text-5xl">✅</div>
+        <h3 class="mt-3 text-2xl font-extrabold">Order Received!</h3>
+        <p id="doneText" class="mx-auto mt-2 max-w-xl text-muted">Thank you! We will call to confirm your order shortly.</p>
+        <img id="receiptImg" alt="Your Vaijan order receipt" class="mx-auto mt-5 w-full max-w-[440px] rounded-xl">
+        <div class="mt-5 flex flex-wrap justify-center gap-3">
+          <a class="btn-gold-x" id="receiptDl" download="Vaijan_Receipt.png" href="#">📥 Save Receipt to Gallery</a>
         </div>
-        <p style="margin-top:12px;font-size:13px">Tip: you can also long-press the receipt image to save it to your gallery.</p>
+        <p class="mt-3 text-[13px] text-muted">Tip: you can also long-press the receipt image to save it to your gallery.</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="foot">
-      <div>
-        <a class="logo" href="#top">VAIJAN</a>
-        <p style="margin-top:10px">। Vaijan । ভাইজান । — Clothing Brand<br>Khulna, Bangladesh</p>
-      </div>
-      <div>
-        <b style="color:var(--text)">Shop &amp; Social</b>
-        <p style="margin-top:8px"><a href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener">Facebook Page — vaijan662</a><br><a href="https://m.me/vaijan662" target="_blank" rel="noopener">Messenger Inbox</a></p>
-      </div>
-      <div>
-        <b style="color:var(--text)">Order Hotline</b>
-        <p style="margin-top:8px">WhatsApp / Call: <a href="https://wa.me/8801569177407" target="_blank" rel="noopener">+880 1569-177407</a><br>Delivery: SteadFast Courier, all Bangladesh</p>
-      </div>
+<!-- ================= Footer ================= -->
+<footer id="contact" class="border-t border-line bg-panel">
+  <div class="mx-auto grid max-w-6xl gap-8 px-5 py-10 md:grid-cols-3">
+    <div>
+      <a href="#top" class="font-display text-2xl font-bold tracking-[0.3em] text-gold">VAIJAN</a>
+      <p class="mt-3 text-sm text-muted">। Vaijan । ভাইজান । — Clothing Brand<br>Khulna, Bangladesh</p>
     </div>
-    <div class="copy">© 2026 VAIJAN. All rights reserved. Prices shown are current offers and may change with new collections.</div>
+    <div>
+      <b>Shop &amp; Social</b>
+      <p class="mt-2 text-sm leading-relaxed text-muted"><a href="https://www.facebook.com/vaijan662" target="_blank" rel="noopener" class="hover:text-goldlt">Facebook Page — vaijan662</a><br><a href="https://m.me/vaijan662" target="_blank" rel="noopener" class="hover:text-goldlt">Messenger Inbox</a></p>
+    </div>
+    <div>
+      <b>Order Hotline</b>
+      <p class="mt-2 text-sm leading-relaxed text-muted">WhatsApp / Call: <a href="https://wa.me/8801569177407" target="_blank" rel="noopener" class="text-goldlt">+880 1569-177407</a><br>Delivery: SteadFast Courier, all Bangladesh</p>
+    </div>
   </div>
+  <div class="border-t border-line py-4 text-center text-[13px] text-muted">© 2026 VAIJAN. All rights reserved. Prices shown are current offers and may change with new collections.</div>
 </footer>
 
 <button id="cartFab" type="button">🛒 Cart (<span id="cartFabCount">0</span>) • <span id="cartFabSum">৳0</span></button>
 <div id="cartToast">Added to cart ✓</div>
 
-<script>
-  const chips = document.querySelectorAll('.chip[data-filter]');
-  const cards = document.querySelectorAll('.card[data-cat]');
-  chips.forEach(chip => chip.addEventListener('click', () => {
-    chips.forEach(c => c.classList.remove('active'));
-    chip.classList.add('active');
-    const f = chip.dataset.filter;
-    cards.forEach(card => {
-      card.style.display = (f === 'all' || card.dataset.cat === f) ? '' : 'none';
-    });
-  }));
-</script>
-<script>
-/* ==== Vaijan website orders → Google Sheet database (Apps Script Web App) ==== */
-const ORDER_LOG_URL = 'https://script.google.com/macros/s/AKfycbzIH-h0Y_36mRN-ehYNSSN1IVvCawk4HRx8_L2unYIQTRc6N2V_AlXbqm4UAfjuY2GUUg/exec';
-const logoImg = new Image(); logoImg.src = 'images/logo.jpg';
-const PRICES = { A:750, B:750, BUNDLE:1300, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450 };
-const PNAMES = { A:'Design A — Kalima Calligraphy Hoodie', B:'Design B — Only Trust Allah Hoodie', BUNDLE:'Winter Bundle — Design A + Design B',
-  AW1:'Acid Wash Tee — One Piece / Jolly Roger', AW2:'Acid Wash Tee — LIVE YOUR LIFE Forest', AW3:'Acid Wash Tee — Kakashi',
-  AW4:'Acid Wash Tee — Spider-Man', AW5:'Acid Wash Tee — Zulfiqar Sword',
-  AW7:'Acid Wash Tee — ALPHA INSTINCT Tiger' };
-const AREAS  = { khulna:'Inside Khulna', dhaka:'Dhaka City', other:'Other District' };
-const $ = id => document.getElementById(id);
-
-/* card Order Now buttons → preselect the product in the form */
-document.querySelectorAll('[data-pick]').forEach(el => {
-  el.addEventListener('click', () => { cartMode = false; setFormMode(); $('fProduct').value = el.dataset.pick; upd(); });
-});
-
-/* ==== Shopping cart ==== */
-let cart = [];
-try { cart = JSON.parse(localStorage.getItem('vaijan_cart') || '[]'); } catch(e){ cart = []; }
-let cartMode = false;
-function saveCart(){ try { localStorage.setItem('vaijan_cart', JSON.stringify(cart)); } catch(e){} }
-function sizeOpts(sel){ return ['M','L','XL','XXL'].map(s => '<option' + (s === sel ? ' selected' : '') + '>' + s + '</option>').join(''); }
-function cartTotals(){
-  let subtotal = 0, totalQty = 0, awQty = 0, hasBundle = false, qtyA = 0, qtyB = 0;
-  cart.forEach(it => { subtotal += PRICES[it.p] * it.qty; totalQty += it.qty; if(it.p.indexOf('AW') === 0) awQty += it.qty; if(it.p === 'BUNDLE') hasBundle = true; if(it.p === 'A') qtyA += it.qty; if(it.p === 'B') qtyB += it.qty; });
-  /* Combo match: Design A + Design B together = Winter Bundle (1300 instead of 1500) → 200 off per pair */
-  const pairs = Math.min(qtyA, qtyB);
-  const discount = pairs * 200;
-  if(pairs > 0) hasBundle = true;
-  return { subtotal, discount, pairs, ptotal: subtotal - discount, totalQty, awQty, hasBundle };
-}
-function cartDelivery(area){
-  const t = cartTotals();
-  if(t.hasBundle || t.awQty >= 2) return 0; /* bundle orders + any 2 acid wash tees: FREE delivery */
-  const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
-  return base + 20 * (t.totalQty - 1);
-}
-function renderCart(){
-  const box = $('cartBox');
-  const t = cartTotals();
-  $('cartFabCount').textContent = t.totalQty;
-  $('cartFabSum').textContent = fmt(t.ptotal);
-  $('cartFab').style.display = cart.length ? 'block' : 'none';
-  if(!cart.length){ box.style.display = 'none'; if(cartMode){ cartMode = false; setFormMode(); } return; }
-  box.style.display = 'block';
-  $('cartRows').innerHTML = cart.map((it, i) => {
-    const sizeCtl = it.p === 'BUNDLE'
-      ? '<label style="font-size:12px;color:#b7b0a0">Size A <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label> <label style="font-size:12px;color:#b7b0a0">Size B <select data-ci="' + i + '" data-cf="s2">' + sizeOpts(it.s2) + '</select></label>'
-      : '<label style="font-size:12px;color:#b7b0a0">Size <select data-ci="' + i + '" data-cf="s1">' + sizeOpts(it.s1) + '</select></label>';
-    return '<div class="crow"><div class="cinfo"><b>' + PNAMES[it.p] + '</b><span>' + fmt(PRICES[it.p]) + ' each</span></div>'
-      + '<div class="cctl">' + sizeCtl + '</div>'
-      + '<div class="cqty"><button type="button" data-ci="' + i + '" data-cq="-1">−</button><span>' + it.qty + '</span><button type="button" data-ci="' + i + '" data-cq="1">+</button></div>'
-      + '<div class="cline">' + fmt(PRICES[it.p] * it.qty) + '</div>'
-      + '<button type="button" class="crm" data-ci="' + i + '" data-crm="1" title="Remove">✕</button></div>';
-  }).join('');
-  $('cartTotal').textContent = fmt(t.ptotal);
-  $('cartDiscRow').style.display = t.discount > 0 ? 'flex' : 'none';
-  if(t.discount > 0) $('cartDisc').textContent = '−' + fmt(t.discount);
-  box.querySelectorAll('select[data-ci]').forEach(sel => sel.addEventListener('change', () => { cart[+sel.dataset.ci][sel.dataset.cf] = sel.value; saveCart(); }));
-  box.querySelectorAll('button[data-cq]').forEach(b => b.addEventListener('click', () => { const it = cart[+b.dataset.ci]; it.qty = Math.min(5, Math.max(1, it.qty + (+b.dataset.cq))); saveCart(); renderCart(); if(cartMode) upd(); }));
-  box.querySelectorAll('button[data-crm]').forEach(b => b.addEventListener('click', () => { cart.splice(+b.dataset.ci, 1); saveCart(); renderCart(); if(cartMode) upd(); }));
-}
-function setFormMode(){
-  ['cellProduct','cellQty','cellSize'].forEach(id => { const el = $(id); if(el) el.style.display = cartMode ? 'none' : ''; });
-  $('cartModeNote').style.display = cartMode ? 'block' : 'none';
-}
-document.querySelectorAll('[data-add]').forEach(el => {
-  el.addEventListener('click', () => {
-    const p = el.dataset.add;
-    const ex = cart.find(it => it.p === p);
-    if(ex){ if(ex.qty < 5) ex.qty++; } else { cart.push({ p, s1:'L', s2:'L', qty:1 }); }
-    saveCart(); renderCart();
-    const t = $('cartToast'); t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1400);
-  });
-});
-$('cartFab').addEventListener('click', () => { window.open('cart.html', '_blank'); });
-$('cartCheckout').addEventListener('click', () => { window.open('cart.html', '_blank'); });
-$('exitCartMode').addEventListener('click', e => { e.preventDefault(); cartMode = false; setFormMode(); upd(); });
-$('cartClear').addEventListener('click', () => { cart = []; saveCart(); renderCart(); upd(); });
-renderCart();
-
-function deliveryFor(product, area, qty){
-  if(product === 'BUNDLE'){
-    return 0; /* Bundle offer: FREE delivery all over Bangladesh */
-  }
-  if(product.indexOf('AW') === 0 && qty >= 2){
-    return 0; /* Acid wash combo: any 2 tees = FREE delivery */
-  }
-  const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
-  return base + 20 * (qty - 1);
-}
-function calc(){
-  const area0 = $('fArea').value;
-  if(cartMode && cart.length){
-    const t = cartTotals();
-    const del = cartDelivery(area0);
-    return { p:'CART', q:t.totalQty, area:area0, ptotal:t.ptotal, del, grand:t.ptotal + del };
-  }
-  const p = $('fProduct').value, q = parseInt($('fQty').value, 10), area = $('fArea').value;
-  const ptotal = PRICES[p] * q;
-  const del = deliveryFor(p, area, q);
-  return { p, q, area, ptotal, del, grand: del === null ? null : ptotal + del };
-}
-function fmt(n){ return '৳' + n.toLocaleString('en-IN'); }
-function upd(){
-  const c = calc();
-  $('size2Wrap').style.display = c.p === 'BUNDLE' ? '' : 'none';
-  $('tProduct').textContent = fmt(c.ptotal);
-  $('tDelivery').textContent = c.del === null ? 'Courier bill (pay actual)' : (c.del === 0 ? 'FREE' : fmt(c.del));
-  $('tGrand').textContent = c.grand === null ? fmt(c.ptotal) + ' + courier bill' : fmt(c.grand);
-}
-['fProduct','fQty','fArea','fSize','fSize2'].forEach(id => $(id).addEventListener('change', upd));
-upd();
-
-function sizeText(c){
-  return c.p === 'BUNDLE' ? ('A: ' + $('fSize').value + ' / B: ' + $('fSize2').value) : $('fSize').value;
-}
-$('fSubmit').addEventListener('click', () => {
-  const name = $('fName').value.trim();
-  const phone = $('fPhone').value.replace(/[\s-]/g, '');
-  const addr = $('fAddr').value.trim();
-  const note = $('fNote').value.trim();
-  const err = $('fErr');
-  if(!name || !phone || addr.length < 8){ err.textContent = 'Please fill in your name, mobile number and full address.'; err.style.display = 'block'; return; }
-  if(!/^01[3-9]\d{8}$/.test(phone)){ err.textContent = 'Please give a valid mobile number (starts with 01, 11 digits).'; err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  const c = calc();
-  const oid = 'VJ' + Date.now().toString(36).toUpperCase();
-  let prodText, sizeVal, qtyVal;
-  if(cartMode && cart.length){
-    prodText = cart.map(it => PNAMES[it.p] + ' (' + (it.p === 'BUNDLE' ? 'A:' + it.s1 + ' / B:' + it.s2 : it.s1) + ') ×' + it.qty).join('; ');
-    sizeVal = '—'; qtyVal = c.q;
-  } else { prodText = PNAMES[c.p]; sizeVal = sizeText(c); qtyVal = c.q; }
-  const o = {
-    id: oid, time: new Date().toLocaleString('en-GB'), name, phone, addr,
-    area: AREAS[c.area], product: prodText, size: sizeVal, qty: qtyVal,
-    productTotal: c.ptotal,
-    delivery: c.del === null ? 'Courier bill' : (c.del === 0 ? 'FREE' : c.del),
-    grandTotal: c.grand === null ? (c.ptotal + ' + courier bill') : c.grand,
-    note
-  };
-  /* receipt image (save to gallery) — drawn first so a copy can also go to the database */
-  const url = drawReceipt(o);
-  /* save a copy in the customer's own browser */
-  try { const all = JSON.parse(localStorage.getItem('vaijan_orders') || '[]'); all.push(o); localStorage.setItem('vaijan_orders', JSON.stringify(all)); } catch(e){}
-  /* send to the Google Sheet database, with a copy of the receipt */
-  if(ORDER_LOG_URL){
-    const payload = Object.assign({}, o, { receipt: url });
-    fetch(ORDER_LOG_URL, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body: JSON.stringify(payload) }).catch(()=>{});
-  }
-  /* a completed cart order empties the cart */
-  if(cartMode){ cart = []; saveCart(); cartMode = false; renderCart(); setFormMode(); }
-  $('receiptImg').src = url;
-  const dl = $('receiptDl'); dl.href = url; dl.setAttribute('download', 'Vaijan_Receipt_' + oid + '.png');
-  $('doneText').textContent = 'Order ID: ' + oid + ' — Thank you, ' + name.split(' ')[0] + '! Your order is confirmed in our order book. We will call ' + phone + ' shortly — no need to message anywhere. Save your receipt below.';
-  $('formWrap').style.display = 'none';
-  $('orderDone').style.display = 'block';
-  $('orderDone').scrollIntoView({ behavior:'smooth', block:'center' });
-});
-
-/* ==== Receipt image — black & gold Vaijan style ==== */
-function wrapC(x, text, maxW){
-  const words = String(text).split(' '); const lines = []; let line = '';
-  for(const w of words){ const t = line ? line + ' ' + w : w; if(x.measureText(t).width > maxW && line){ lines.push(line); line = w; } else line = t; }
-  if(line) lines.push(line); return lines.length ? lines : [''];
-}
-function drawReceipt(o){
-  const W = 880, M = 54; const c = document.createElement('canvas');
-  const x = c.getContext('2d');
-  x.font = "500 25px Manrope, sans-serif";
-  const addrLines = wrapC(x, o.addr, W - 2 * M - 130);
-  const prodLines = wrapC(x, o.product, W - 2 * M - 130);
-  const H = 806 + addrLines.length * 34 + (prodLines.length - 1) * 34 + (o.note ? 40 : 0) + (o.discount ? 78 : 0);
-  c.width = W; c.height = H;
-  x.fillStyle = '#0a0a0b'; x.fillRect(0, 0, W, H);
-  x.strokeStyle = '#c9a86a'; x.lineWidth = 3; x.strokeRect(10, 10, W - 20, H - 20);
-  /* header */
-  x.textAlign = 'center';
-  if(logoImg.complete && logoImg.naturalWidth){
-    x.save();
-    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.clip();
-    x.fillStyle = '#ffffff'; x.fillRect(W / 2 - 54, 38, 108, 108);
-    x.drawImage(logoImg, W / 2 - 54, 38, 108, 108);
-    x.restore();
-    x.strokeStyle = '#c9a86a'; x.lineWidth = 3;
-    x.beginPath(); x.arc(W / 2, 92, 54, 0, 7); x.stroke();
-  }
-  x.fillStyle = '#c9a86a'; x.font = "700 54px Cinzel, serif";
-  x.fillText('V A I J A N', W / 2, 200);
-  x.fillStyle = '#b7b0a0'; x.font = "600 17px Manrope, sans-serif";
-  x.fillText('T H E   N A M E  •  T H E   L O O K  •  T H E   L E G A C Y', W / 2, 234);
-  x.fillStyle = '#f4efe6'; x.font = "800 27px Manrope, sans-serif";
-  x.fillText('ORDER RECEIPT', W / 2, 278);
-  x.fillStyle = '#c9a86a'; x.fillRect(M, 298, W - 2 * M, 2);
-  x.textAlign = 'left';
-  let y = 346;
-  const row = (k, v, bold) => {
-    x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText(k, M, y);
-    x.fillStyle = '#f4efe6'; x.font = (bold ? "800" : "600") + " 24px Manrope, sans-serif"; x.fillText(v, M + 170, y);
-    y += 40;
-  };
-  row('Order ID', o.id, true);
-  row('Date', o.time);
-  row('Name', o.name);
-  row('Mobile', o.phone);
-  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Address', M, y);
-  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
-  addrLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
-  y += 8;
-  row('Area', o.area);
-  x.fillStyle = '#b7b0a0'; x.font = "600 22px Manrope, sans-serif"; x.fillText('Product', M, y);
-  x.fillStyle = '#f4efe6'; x.font = "600 23px Manrope, sans-serif";
-  prodLines.forEach(ln => { x.fillText(ln, M + 170, y); y += 34; });
-  y += 8;
-  row('Size / Qty', o.size + '  ×  ' + o.qty);
-  if(o.note){ row('Note', o.note.length > 30 ? o.note.slice(0, 30) + '…' : o.note); }
-  y += 4;
-  x.fillStyle = '#c9a86a'; x.fillRect(M, y, W - 2 * M, 2); y += 44;
-  const trow = (k, v) => {
-    x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText(k, M, y);
-    x.fillStyle = '#f4efe6'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText(v, W - M, y); x.textAlign = 'left'; y += 38;
-  };
-  if(o.discount){
-    trow('Subtotal', fmt(o.subtotal));
-    x.fillStyle = '#b7b0a0'; x.font = "600 23px Manrope, sans-serif"; x.fillText('Combo discount', M, y);
-    x.fillStyle = '#e6cd8f'; x.font = "700 24px Manrope, sans-serif"; x.textAlign = 'right'; x.fillText('−' + fmt(o.discount), W - M, y); x.textAlign = 'left'; y += 38;
-  }
-  trow('Product total', fmt(o.productTotal));
-  trow('Delivery', typeof o.delivery === 'string' ? o.delivery : fmt(o.delivery));
-  x.fillStyle = '#c9a86a'; x.font = "800 29px Manrope, sans-serif";
-  x.fillText('TOTAL (COD)', M, y);
-  x.textAlign = 'right'; x.fillText(typeof o.grandTotal === 'number' ? fmt(o.grandTotal) : String(o.grandTotal), W - M, y); x.textAlign = 'left';
-  y += 54;
-  x.textAlign = 'center';
-  x.fillStyle = '#b7b0a0'; x.font = "600 19px Manrope, sans-serif";
-  x.fillText('Please check the product in front of the delivery rider.', W / 2, y); y += 30;
-  x.fillStyle = '#e6cd8f';
-  x.fillText('Thank you for shopping with VAIJAN — WhatsApp 01569-177407', W / 2, y);
-  x.textAlign = 'left';
-  return c.toDataURL('image/png');
-}
-</script>
+<script src="assets/js/common.js" defer></script>
+<script src="assets/js/shop.js" defer></script>
+<script src="assets/vendor/gsap.min.js" defer></script>
+<script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+<script src="assets/js/animations.js" defer></script>
 </body>
 </html>
