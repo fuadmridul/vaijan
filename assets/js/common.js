@@ -4,12 +4,14 @@
    ============================================================ */
 const ORDER_LOG_URL = 'https://script.google.com/macros/s/AKfycbzIH-h0Y_36mRN-ehYNSSN1IVvCawk4HRx8_L2unYIQTRc6N2V_AlXbqm4UAfjuY2GUUg/exec';
 
-const PRICES = { A:750, B:750, BUNDLE:1300, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450 };
+const PRICES = { A:750, B:750, BUNDLE:1300, LE:1150, HERITAGE:1150, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450 };
 const PNAMES = { A:'Design A — Kalima Calligraphy Hoodie', B:'Design B — Only Trust Allah Hoodie', BUNDLE:'Winter Bundle — Design A + Design B',
+  LE:'Limited Edition Hoodie — Carpet Art', HERITAGE:'Heritage Collection — Limited Edition Hoodie',
   AW1:'Acid Wash Tee — One Piece / Jolly Roger', AW2:'Acid Wash Tee — LIVE YOUR LIFE Forest', AW3:'Acid Wash Tee — Kakashi',
   AW4:'Acid Wash Tee — Spider-Man', AW5:'Acid Wash Tee — Zulfiqar Sword',
   AW7:'Acid Wash Tee — ALPHA INSTINCT Tiger' };
 const PIMG = { A:'images/hoodie-a.jpg', B:'images/hoodie-b.jpg', BUNDLE:'images/winter-poster.png',
+  LE:'images/limited-edition.jpg', HERITAGE:'images/heritage.jpg',
   AW1:'images/acid-1.jpg', AW2:'images/acid-2.jpg', AW3:'images/acid-3.jpg', AW4:'images/acid-4.jpg', AW5:'images/acid-5.jpg', AW7:'images/acid-7.jpg' };
 const AREAS  = { khulna:'Inside Khulna', dhaka:'Dhaka City', other:'Other District' };
 
@@ -26,12 +28,13 @@ function saveCart(cart){ try { localStorage.setItem('vaijan_cart', JSON.stringif
 
 /* ---- cart maths ---- */
 function priceCart(cart){
-  let subtotal = 0, totalQty = 0, awQty = 0, hasBundle = false, qtyA = 0, qtyB = 0;
+  let subtotal = 0, totalQty = 0, awQty = 0, hasBundle = false, hasFree = false, qtyA = 0, qtyB = 0;
   cart.forEach(it => {
     subtotal += PRICES[it.p] * it.qty;
     totalQty += it.qty;
     if(it.p.indexOf('AW') === 0) awQty += it.qty;
     if(it.p === 'BUNDLE') hasBundle = true;
+    if(it.p === 'LE' || it.p === 'HERITAGE') hasFree = true; /* limited edition hoodies: FREE delivery */
     if(it.p === 'A') qtyA += it.qty;
     if(it.p === 'B') qtyB += it.qty;
   });
@@ -39,15 +42,15 @@ function priceCart(cart){
   const pairs = Math.min(qtyA, qtyB);
   const discount = pairs * 200;
   if(pairs > 0) hasBundle = true;
-  return { subtotal, discount, pairs, ptotal: subtotal - discount, totalQty, awQty, hasBundle };
+  return { subtotal, discount, pairs, ptotal: subtotal - discount, totalQty, awQty, hasBundle, hasFree };
 }
 function cartDelivery(t, area){
-  if(t.hasBundle || t.awQty >= 2) return 0; /* bundle orders + any 2 acid wash tees: FREE delivery */
+  if(t.hasBundle || t.hasFree || t.awQty >= 2) return 0; /* bundle orders + limited editions + any 2 acid wash tees: FREE delivery */
   const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
   return base + 20 * (t.totalQty - 1);
 }
 function singleDelivery(product, area, qty){
-  if(product === 'BUNDLE') return 0;
+  if(product === 'BUNDLE' || product === 'LE' || product === 'HERITAGE') return 0;
   if(product.indexOf('AW') === 0 && qty >= 2) return 0;
   const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
   return base + 20 * (qty - 1);
