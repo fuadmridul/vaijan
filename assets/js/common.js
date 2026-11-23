@@ -4,15 +4,17 @@
    ============================================================ */
 const ORDER_LOG_URL = 'https://script.google.com/macros/s/AKfycbzIH-h0Y_36mRN-ehYNSSN1IVvCawk4HRx8_L2unYIQTRc6N2V_AlXbqm4UAfjuY2GUUg/exec';
 
-const PRICES = { A:750, B:750, BUNDLE:1300, LE:1150, HERITAGE:1150, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450, AW8:450, AW9:450, AW10:450, AW11:450, AW12:450 };
+const PRICES = { A:750, B:750, BUNDLE:1300, LE:1150, HERITAGE:1150, VC1:999, VC3:999, VCCOMBO:1650, AW1:450, AW2:450, AW3:450, AW4:450, AW5:450, AW7:450, AW8:450, AW9:450, AW10:450, AW11:450, AW12:450 };
 const PNAMES = { A:'Design A — Kalima Calligraphy Hoodie', B:'Design B — Only Trust Allah Hoodie', BUNDLE:'Winter Bundle — Design A + Design B',
   LE:'Limited Edition Hoodie — Carpet Art', HERITAGE:'Heritage Collection — Limited Edition Hoodie',
+  VC1:'Vice City Hoodie — Design 01 (Black)', VC3:'Vice City Hoodie — Design 03 (Navy)', VCCOMBO:'Vice City Combo — Design 01 + Design 03',
   AW1:'Acid Wash Tee — One Piece / Jolly Roger', AW2:'Acid Wash Tee — LIVE YOUR LIFE Forest', AW3:'Acid Wash Tee — Kakashi',
   AW4:'Acid Wash Tee — Spider-Man', AW5:'Acid Wash Tee — Zulfiqar Sword',
   AW7:'Acid Wash Tee — ALPHA INSTINCT Tiger', AW8:'Acid Wash Tee — VAIJAN Est. 2025 Gothic', AW9:'Acid Wash Tee — SAVAGE Tiger',
   AW10:'Acid Wash Tee — Wolf', AW11:'Acid Wash Tee — BMW 2002 Turbo', AW12:'Acid Wash Tee — STARBOY' };
 const PIMG = { A:'images/hoodie-a.jpg', B:'images/hoodie-b.jpg', BUNDLE:'images/winter-poster.png',
   LE:'images/limited-edition.jpg', HERITAGE:'images/heritage.jpg',
+  VC1:'images/vice-city-1.jpg', VC3:'images/vice-city-3.jpg', VCCOMBO:'images/vice-city-1.jpg',
   AW1:'images/acid-1.jpg', AW2:'images/acid-2.jpg', AW3:'images/acid-3.jpg', AW4:'images/acid-4.jpg', AW5:'images/acid-5.jpg', AW7:'images/acid-7.jpg',
   AW8:'images/acid-8.jpg', AW9:'images/acid-9.jpg', AW10:'images/acid-10.jpg', AW11:'images/acid-11.jpg', AW12:'images/acid-12.jpg' };
 const AREAS  = { khulna:'Inside Khulna', dhaka:'Dhaka City', other:'Other District' };
@@ -36,7 +38,7 @@ function priceCart(cart){
     totalQty += it.qty;
     if(it.p.indexOf('AW') === 0) awQty += it.qty;
     if(it.p === 'BUNDLE') hasBundle = true;
-    if(it.p === 'LE' || it.p === 'HERITAGE') hasFree = true; /* limited edition hoodies: FREE delivery */
+    if(it.p === 'LE' || it.p === 'HERITAGE' || it.p === 'VC1' || it.p === 'VC3' || it.p === 'VCCOMBO') hasFree = true; /* limited editions + Vice City hoodies: FREE delivery (Vice City offer until 31 Dec 2026) */
     if(it.p === 'A') qtyA += it.qty;
     if(it.p === 'B') qtyB += it.qty;
   });
@@ -52,7 +54,7 @@ function cartDelivery(t, area){
   return base + 20 * (t.totalQty - 1);
 }
 function singleDelivery(product, area, qty){
-  if(product === 'BUNDLE' || product === 'LE' || product === 'HERITAGE') return 0;
+  if(product === 'BUNDLE' || product === 'LE' || product === 'HERITAGE' || product === 'VC1' || product === 'VC3' || product === 'VCCOMBO') return 0;
   if(product.indexOf('AW') === 0 && qty >= 2) return 0;
   const base = area === 'khulna' ? 60 : area === 'dhaka' ? 115 : 135;
   return base + 20 * (qty - 1);
